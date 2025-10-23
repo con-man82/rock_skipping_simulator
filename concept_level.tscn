@@ -1,0 +1,113 @@
+[gd_scene load_steps=17 format=3 uid="uid://mws8wx746raq"]
+
+[ext_resource type="Script" uid="uid://p10ppjl1y6wb" path="res://world.gd" id="1_3jw7l"]
+[ext_resource type="PackedScene" uid="uid://cafk5qcbyvd3p" path="res://concept_rock.tscn" id="1_il3sp"]
+[ext_resource type="PackedScene" uid="uid://8tm283pwnwms" path="res://ui.tscn" id="1_rtf3t"]
+[ext_resource type="Texture2D" uid="uid://bbmy5rk6emmkt" path="res://Art/coolguy.webp" id="4_tfkvj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8u74"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_il3sp"]
+sky_material = SubResource("ProceduralSkyMaterial_m8u74")
+
+[sub_resource type="Environment" id="Environment_rtf3t"]
+background_mode = 2
+sky = SubResource("Sky_il3sp")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8u74"]
+albedo_color = Color(0, 0.36078432, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_il3sp"]
+material = SubResource("StandardMaterial3D_m8u74")
+size = Vector3(100, 1, 300)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtf3t"]
+albedo_color = Color(0, 0.36078432, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3jw7l"]
+material = SubResource("StandardMaterial3D_rtf3t")
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rtf3t"]
+size = Vector3(300, 1, 300)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3jw7l"]
+rough = true
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3jw7l"]
+data = PackedVector3Array(-150, 0.5, 150, 150, 0.5, 150, -150, -0.5, 150, 150, 0.5, 150, 150, -0.5, 150, -150, -0.5, 150, 150, 0.5, -150, -150, 0.5, -150, 150, -0.5, -150, -150, 0.5, -150, -150, -0.5, -150, 150, -0.5, -150, 150, 0.5, 150, 150, 0.5, -150, 150, -0.5, 150, 150, 0.5, -150, 150, -0.5, -150, 150, -0.5, 150, -150, 0.5, -150, -150, 0.5, 150, -150, -0.5, -150, -150, 0.5, 150, -150, -0.5, 150, -150, -0.5, -150, 150, 0.5, 150, -150, 0.5, 150, 150, 0.5, -150, -150, 0.5, 150, -150, 0.5, -150, 150, 0.5, -150, -150, -0.5, 150, 150, -0.5, 150, -150, -0.5, -150, 150, -0.5, 150, 150, -0.5, -150, -150, -0.5, -150)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wte2k"]
+albedo_texture = ExtResource("4_tfkvj")
+billboard_keep_scale = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4gbrq"]
+material = SubResource("StandardMaterial3D_wte2k")
+size = Vector2(2, 5)
+
+[node name="ConceptLevel" type="Node3D"]
+script = ExtResource("1_3jw7l")
+
+[node name="UI" parent="." instance=ExtResource("1_rtf3t")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rtf3t")
+
+[node name="Camera3DForTesting" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.009249821, 4.090829, 6.258471)
+cull_mask = 1048573
+
+[node name="water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00097310543, -0.9052603, -135.79033)
+mesh = SubResource("BoxMesh_il3sp")
+
+[node name="Land" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019462109, -0.674541, 23.902386)
+mesh = SubResource("BoxMesh_3jw7l")
+skeleton = NodePath("../water")
+
+[node name="Land3" type="MeshInstance3D" parent="Land"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.433067, 1.9321876, -194.76543)
+mesh = SubResource("BoxMesh_3jw7l")
+skeleton = NodePath("../water")
+
+[node name="Land2" type="MeshInstance3D" parent="Land"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.435013, 0.27048588, -133.26091)
+mesh = SubResource("BoxMesh_3jw7l")
+skeleton = NodePath("../water")
+
+[node name="Land" type="MeshInstance3D" parent="Land"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43696, 0.4716382, -67.77785)
+mesh = SubResource("BoxMesh_3jw7l")
+skeleton = NodePath("../water")
+
+[node name="BouncePad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9200947, -132.8952)
+layers = 2
+mesh = SubResource("BoxMesh_rtf3t")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BouncePad"]
+physics_material_override = SubResource("PhysicsMaterial_3jw7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3jw7l")
+
+[node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.198803, 1.8453641)
+slide_on_ceiling = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.97338325, -0.06538303, -0.21965903, 0.22918344, 0.27769357, 0.93293166, 0, -0.9584423, 0.28528696, 0, 8.159134, 0)
+
+[node name="InputDelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CoolGuy" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 2.4358928, 0)
+mesh = SubResource("PlaneMesh_4gbrq")
+
+[connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]

@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://8tm283pwnwms"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -573.5
+offset_top = -322.0
+offset_right = 573.5
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="AngleHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="AngleAmountLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer"]
+layout_mode = 2
+text = "Number"
+
+[node name="AngleLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer"]
+layout_mode = 2
+text = "<--- Angle"
+
+[node name="PowerHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="PowerAmountLabel" type="Label" parent="Control/VBoxContainer/PowerHBoxContainer"]
+layout_mode = 2
+text = "Number"
+
+[node name="PowerLabel" type="Label" parent="Control/VBoxContainer/PowerHBoxContainer"]
+layout_mode = 2
+text = "<--- Power"
+
+[node name="BottomText" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+grow_horizontal = 2
+grow_vertical = 0
+text = ">> Press Space to Throw! <<"
+horizontal_alignment = 1
+
+[node name="BouneCounter" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -218.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Bounce Counter: (not setup)"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 928.5
+offset_top = 24.0
+offset_right = 1147.0
+offset_bottom = 52.0
+text = "Score: (not setup)"
