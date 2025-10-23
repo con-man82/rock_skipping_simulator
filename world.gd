@@ -20,6 +20,7 @@ func _ready() -> void:
 	power_amount_label.text = "Test"
 	angle_amount_label.text = "Test"
 
+
 func _process(delta: float) -> void:     
 	#print(accept_input)
 	if Input.is_action_just_released("power_hit") and accept_input == true and start_action == false:
@@ -47,7 +48,6 @@ func get_power(delta):
 		power = slideNumber
 		power_amount_label.text = str(power)
 		delay_input()
-
 
 
 func get_angle(delta):
@@ -80,6 +80,7 @@ func delay_input() -> void:
 	if accept_input == true:
 		input_delay_timer.start(delay_wait)
 		accept_input = false
-	
+
+
 func _on_input_delay_timer_timeout() -> void:
 	accept_input = true
