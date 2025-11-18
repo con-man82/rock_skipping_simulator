@@ -29,6 +29,10 @@ func _process(delta: float) -> void:
 		get_power(delta)
 	if start_action == true and power > 0 and accept_input == true:
 		get_angle(delta)
+		
+	if Input.is_action_just_released("restart"):
+		get_tree().change_scene_to_file("res://start_screen.tscn")
+	
 	
 	if reset_slide == true:
 		slideNumber = 0
@@ -83,3 +87,4 @@ func delay_input() -> void:
 	
 func _on_input_delay_timer_timeout() -> void:
 	accept_input = true
+	
