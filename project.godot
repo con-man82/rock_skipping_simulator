@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="RockSkipperGame"
-run/main_scene="uid://mws8wx746raq"
+config/name="Project Skip Masters"
+run/main_scene="uid://tiejtnodjv6n"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

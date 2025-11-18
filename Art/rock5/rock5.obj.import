@@ -4,14 +4,11 @@ importer="wavefront_obj"
 importer_version=1
 type="Mesh"
 uid="uid://yrmy6eex2p2a"
-path="res://.godot/imported/rock5.obj-73e0f7bde7013b33f8583060fde659c4.mesh"
+valid=false
 
 [deps]
 
-files=["res://.godot/imported/rock5.obj-73e0f7bde7013b33f8583060fde659c4.mesh"]
-
 source_file="res://Art/rock5/rock5.obj"
-dest_files=["res://.godot/imported/rock5.obj-73e0f7bde7013b33f8583060fde659c4.mesh", "res://.godot/imported/rock5.obj-73e0f7bde7013b33f8583060fde659c4.mesh"]
 
 [params]
 
