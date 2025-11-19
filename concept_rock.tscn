@@ -18,6 +18,8 @@ transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
 shape = ExtResource("3_2huw1")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+
 [node name="RockCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.96831787, 0.24972095, 0, -0.24972095, 0.96831787, 0, 0.4438225, 1.0577755)
 cull_mask = 1048573

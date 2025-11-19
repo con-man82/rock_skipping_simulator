@@ -1,9 +1,14 @@
 extends CharacterBody3D
 
+#add spinning
+#add drag - accel on bounce
+#change or randomize rocks
 
 @onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
+@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 
 var speed = 5.0
+var dragging_speed := 0.0
 var skip_velocity = 10.1
 var rock_power := 0.00
 var rock_angle := 0.00
@@ -18,16 +23,28 @@ func _physics_process(delta: float) -> void:
 	velocity += get_gravity() * delta
 	print(skip_attempt)
 	if skip_attempt == true:
-		velocity.y = skip_velocity
+		if skip_velocity > dragging_speed:
+			velocity.y = skip_velocity - dragging_speed
+			skip_velocity -= 1.5
+			dragging_speed += 1  
+			# add skip counter increase here
+		else:
+			pass 
 		skip_attempt = false
+		
 
 	if start_moving == true:
 		moving_dir_forward = -1
 		start_moving = false
 	var direction := (transform.basis * Vector3(0, moving_dir_forward, moving_dir_forward)).normalized()
 	if direction:
-		velocity.x = direction.x * speed * (rock_angle/2)
-		velocity.z = direction.z * speed * (rock_power/2)
+		var current_speed = speed - dragging_speed
+		var current_rotate = current_speed 
+		mesh_instance_3d.rotation.y += (rock_angle - current_rotate)
+		if current_speed < 0:
+			current_speed = 0
+		velocity.x = direction.x * current_speed * (rock_angle/2)
+		velocity.z = direction.z * current_speed * (rock_power/2)
 		#velocity.y = direction.y * speed
 	else:
 		velocity.y = move_toward(velocity.x, 0, speed * rock_angle)
