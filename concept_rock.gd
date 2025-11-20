@@ -15,8 +15,6 @@ const ROCK_5 = preload("uid://dqnw05upv70sj")
 const ROCK_6 = preload("uid://br7q5m2wwtpfw")
 const ROCK_7 = preload("uid://bctq60oe8vry")
 
-
-
 var speed = 5.0
 var dragging_speed := 0.0
 var skip_velocity = 10.1
@@ -26,10 +24,15 @@ var start_moving := false
 var moving_dir_forward := 0
 var skip_attempt := false
 var stop_rock = false
+var rock_path = "Assests/Rocks/"
 
 func _ready() -> void:
-	pass#rock_mesh.mesh=ROCK_7
-
+	#pass#rock_mesh.mesh=ROCK_7
+	var num = select_random_rock()
+	print(num)
+	var rock = rock_path + "rock" + str(num) + "/" + "rock" + str(num) + ".obj"
+	rock_mesh.mesh = load(rock)
+	#rock_mesh.material_overlay = load(rock_path + "rock" + str(num) + "/" + "texture.*")
 
 func _physics_process(delta: float) -> void:
 
@@ -76,14 +79,17 @@ func throw(throw_power, throw_angle) -> void:
 	start_moving = true
 	print("throwing")
 
+
 #When the rock enters a shape3D this happens fuction happens: (right now the water is a shape3D, so basically when the rocks area is entered by the water shape it will skip)
 func _on_rock_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
 	print("a41 ",str(body))
 	skip_attempt = true
 
+
 func _on_rock_area_3d_body_entered(body: Node3D) -> void:
 	print("qwe ",str(body))
 	skip_attempt = true
+
 
 func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
 	printt("asd ",str(area))
@@ -95,3 +101,21 @@ func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape
 	print("Stop_rock = ", stop_rock)
 
 #Connor: "OK, I figured out where time comes from!"
+
+func select_random_rock():
+	var dir = DirAccess.open(rock_path)
+	var available_rock_dirs = dir.get_directories()
+	
+	var acceptable_rocks = []
+	
+	for rock in available_rock_dirs:
+		var rock_sub_dir = DirAccess.open(rock_path + "/" + rock)
+		print(rock_sub_dir)
+		var files = rock_sub_dir.get_files()
+
+		if files.find(".obj") && (files.find(".jpg") || files.find(".png")):
+			acceptable_rocks.append(str(rock_sub_dir))
+				
+	print("acceptable rocks: " + str(acceptable_rocks.size()))
+
+	return randi_range(0, acceptable_rocks.size())
