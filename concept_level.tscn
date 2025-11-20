@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://mws8wx746raq"]
+[gd_scene load_steps=20 format=3 uid="uid://mws8wx746raq"]
 
 [ext_resource type="Script" uid="uid://p10ppjl1y6wb" path="res://world.gd" id="1_3jw7l"]
 [ext_resource type="PackedScene" uid="uid://cafk5qcbyvd3p" path="res://concept_rock.tscn" id="1_il3sp"]
@@ -18,11 +18,18 @@ sky = SubResource("Sky_il3sp")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8u74"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfkvj"]
 albedo_color = Color(0, 0.36078432, 1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_il3sp"]
-material = SubResource("StandardMaterial3D_m8u74")
+[sub_resource type="BoxMesh" id="BoxMesh_wte2k"]
+material = SubResource("StandardMaterial3D_tfkvj")
+size = Vector3(100, 1, 5000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gbrq"]
+albedo_color = Color(0.5249055, 0.43051624, 0.054982536, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wrno5"]
+material = SubResource("StandardMaterial3D_4gbrq")
 size = Vector3(100, 1, 5000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtf3t"]
@@ -66,8 +73,12 @@ transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.9900
 cull_mask = 1048573
 
 [node name="water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00097310543, -0.9052603, -226.72314)
-mesh = SubResource("BoxMesh_il3sp")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2980957, 0)
+mesh = SubResource("BoxMesh_wte2k")
+
+[node name="Floor" type="MeshInstance3D" parent="." groups=["Floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2824546, -60.955406, -227.55287)
+mesh = SubResource("BoxMesh_wrno5")
 
 [node name="Land" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019462109, -0.674541, 23.902386)
@@ -199,7 +210,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4341328, -132.8952)
 layers = 2
 mesh = SubResource("BoxMesh_rtf3t")
 
-[node name="Area3D" type="Area3D" parent="BouncePad"]
+[node name="Area3D" type="Area3D" parent="BouncePad" groups=["Water"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="BouncePad/Area3D"]
@@ -208,7 +219,20 @@ shape = SubResource("BoxShape3D_tfkvj")
 [node name="StaticBody3D" type="StaticBody3D" parent="BouncePad/Area3D"]
 physics_material_override = SubResource("PhysicsMaterial_3jw7l")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad/Area3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad/Area3D/StaticBody3D" groups=["Floor"]]
+shape = SubResource("ConcavePolygonShape3D_3jw7l")
+
+[node name="FloorArea" type="Area3D" parent="BouncePad" groups=["Floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BouncePad/FloorArea" groups=["Floor"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -65.39095, 0)
+shape = SubResource("BoxShape3D_tfkvj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="BouncePad/FloorArea"]
+physics_material_override = SubResource("PhysicsMaterial_3jw7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad/FloorArea/StaticBody3D" groups=["Floor"]]
 shape = SubResource("ConcavePolygonShape3D_3jw7l")
 
 [node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]

@@ -27,6 +27,11 @@ transform = Transform3D(1, 0, 0, 0, 0.96831787, 0.24972095, 0, -0.24972095, 0.96
 cull_mask = 1048573
 current = true
 
+[node name="RockCamTop" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 25, 0)
+cull_mask = 1048573
+current = true
+
 [connection signal="area_shape_entered" from="MeshInstance3D/RockArea3D" to="." method="_on_rock_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="MeshInstance3D/RockArea3D" to="." method="_on_rock_area_3d_body_entered"]
 [connection signal="body_shape_entered" from="MeshInstance3D/RockArea3D" to="." method="_on_rock_area_3d_body_shape_entered"]

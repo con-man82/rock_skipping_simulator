@@ -15,12 +15,11 @@ var rock_angle := 0.00
 var start_moving := false
 var moving_dir_forward := 0
 var skip_attempt := false
-
+var stop_rock = false
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	#if not is_on_floor():
-	velocity += get_gravity() * delta
+
+	
 	print(skip_attempt)
 	if skip_attempt == true:
 		if skip_velocity > dragging_speed:
@@ -37,22 +36,25 @@ func _physics_process(delta: float) -> void:
 		moving_dir_forward = -1
 		start_moving = false
 	var direction := (transform.basis * Vector3(0, moving_dir_forward, moving_dir_forward)).normalized()
-	if direction:
-		var current_speed = speed - dragging_speed
-		var current_rotate = current_speed 
-		if current_rotate > 0:
-			mesh_instance_3d.rotation.y += (rock_angle - current_rotate)
+	if stop_rock == false:
+		#gravity
+		velocity += get_gravity() * delta
+		if direction:
+			var current_speed = speed - dragging_speed
+			var current_rotate = current_speed 
+			if current_rotate > 0:
+				mesh_instance_3d.rotation.y += (rock_angle - current_rotate)
+			else:
+				mesh_instance_3d.rotation.y = 0
+			if current_speed < 0:
+				current_speed = 0
+			velocity.x = direction.x * current_speed * (rock_angle/2)
+			velocity.z = direction.z * current_speed * (rock_power/2)
+			#velocity.y = direction.y * speed
 		else:
-			mesh_instance_3d.rotation.y = 0
-		if current_speed < 0:
-			current_speed = 0
-		velocity.x = direction.x * current_speed * (rock_angle/2)
-		velocity.z = direction.z * current_speed * (rock_power/2)
-		#velocity.y = direction.y * speed
-	else:
-		velocity.y = move_toward(velocity.x, 0, speed * rock_angle)
-		velocity.z = move_toward(velocity.z, 0, speed + rock_power)
-	move_and_slide()
+			velocity.y = move_toward(velocity.x, 0, speed * rock_angle)
+			velocity.z = move_toward(velocity.z, 0, speed + rock_power)
+		move_and_slide()
 
 func throw(throw_power, throw_angle) -> void:
 	rock_power = throw_power
@@ -71,4 +73,11 @@ func _on_rock_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
 	printt("asd ",str(area))
-	skip_attempt = true
+	if area.is_in_group("Floor"):
+		stop_rock = true
+	else:
+		skip_attempt = true
+	printt(str(area))
+	print("Stop_rock = ", stop_rock)
+
+#Connor: "OK, I figured out where time comes from!"
