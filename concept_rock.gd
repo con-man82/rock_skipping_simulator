@@ -5,7 +5,17 @@ extends CharacterBody3D
 #change or randomize rocks
 
 @onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
-@onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
+@onready var rock_mesh: MeshInstance3D = $Rock
+@onready var rock_cam_top: Camera3D = $RockCamTop
+
+const ROCK_1 = preload("uid://nw4bx6304nlc")
+const ROCK_3 = preload("uid://rssf13emrj8r")
+const ROCK_4 = preload("uid://cp6j4lq0t7shj")
+const ROCK_5 = preload("uid://dqnw05upv70sj")
+const ROCK_6 = preload("uid://br7q5m2wwtpfw")
+const ROCK_7 = preload("uid://bctq60oe8vry")
+
+
 
 var speed = 5.0
 var dragging_speed := 0.0
@@ -16,6 +26,10 @@ var start_moving := false
 var moving_dir_forward := 0
 var skip_attempt := false
 var stop_rock = false
+
+func _ready() -> void:
+	pass#rock_mesh.mesh=ROCK_7
+
 
 func _physics_process(delta: float) -> void:
 
@@ -43,9 +57,9 @@ func _physics_process(delta: float) -> void:
 			var current_speed = speed - dragging_speed
 			var current_rotate = current_speed 
 			if current_rotate > 0:
-				mesh_instance_3d.rotation.y += (rock_angle - current_rotate)
+				rock_mesh.rotation.y += (rock_angle - current_rotate)
 			else:
-				mesh_instance_3d.rotation.y = 0
+				rock_mesh.rotation.y = 0
 			if current_speed < 0:
 				current_speed = 0
 			velocity.x = direction.x * current_speed * (rock_angle/2)

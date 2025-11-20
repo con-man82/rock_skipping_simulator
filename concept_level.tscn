@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://mws8wx746raq"]
+[gd_scene load_steps=19 format=3 uid="uid://mws8wx746raq"]
 
 [ext_resource type="Script" uid="uid://p10ppjl1y6wb" path="res://world.gd" id="1_3jw7l"]
 [ext_resource type="PackedScene" uid="uid://cafk5qcbyvd3p" path="res://concept_rock.tscn" id="1_il3sp"]
 [ext_resource type="PackedScene" uid="uid://8tm283pwnwms" path="res://ui.tscn" id="1_rtf3t"]
 [ext_resource type="Texture2D" uid="uid://c5e8ia1fmef23" path="res://Assests/Characters/coolguy.webp" id="4_tfkvj"]
+[ext_resource type="ArrayMesh" uid="uid://br7q5m2wwtpfw" path="res://Assests/Rocks/rock6/rock6.obj" id="5_wte2k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8u74"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -45,12 +46,6 @@ size = Vector3(300, 1, 300)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tfkvj"]
 size = Vector3(300, 1, 50000)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3jw7l"]
-rough = true
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3jw7l"]
-data = PackedVector3Array(-150, 0.5, 150, 150, 0.5, 150, -150, -0.5, 150, 150, 0.5, 150, 150, -0.5, 150, -150, -0.5, 150, 150, 0.5, -150, -150, 0.5, -150, 150, -0.5, -150, -150, 0.5, -150, -150, -0.5, -150, 150, -0.5, -150, 150, 0.5, 150, 150, 0.5, -150, 150, -0.5, 150, 150, 0.5, -150, 150, -0.5, -150, 150, -0.5, 150, -150, 0.5, -150, -150, 0.5, 150, -150, -0.5, -150, -150, 0.5, 150, -150, -0.5, 150, -150, -0.5, -150, 150, 0.5, 150, -150, 0.5, 150, 150, 0.5, -150, -150, 0.5, 150, -150, 0.5, -150, 150, 0.5, -150, -150, -0.5, 150, 150, -0.5, 150, -150, -0.5, -150, 150, -0.5, 150, 150, -0.5, -150, -150, -0.5, -150)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wte2k"]
 transparency = 1
 albedo_texture = ExtResource("4_tfkvj")
@@ -76,7 +71,7 @@ cull_mask = 1048573
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2980957, 0)
 mesh = SubResource("BoxMesh_wte2k")
 
-[node name="Floor" type="MeshInstance3D" parent="." groups=["Floor"]]
+[node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2824546, -60.955406, -227.55287)
 mesh = SubResource("BoxMesh_wrno5")
 
@@ -216,24 +211,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="BouncePad/Area3D"]
 shape = SubResource("BoxShape3D_tfkvj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="BouncePad/Area3D"]
-physics_material_override = SubResource("PhysicsMaterial_3jw7l")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad/Area3D/StaticBody3D" groups=["Floor"]]
-shape = SubResource("ConcavePolygonShape3D_3jw7l")
-
 [node name="FloorArea" type="Area3D" parent="BouncePad" groups=["Floor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BouncePad/FloorArea" groups=["Floor"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -61.154667, 0)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BouncePad/FloorArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.649868, 0)
 shape = SubResource("BoxShape3D_tfkvj")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="BouncePad/FloorArea"]
-physics_material_override = SubResource("PhysicsMaterial_3jw7l")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BouncePad/FloorArea/StaticBody3D" groups=["Floor"]]
-shape = SubResource("ConcavePolygonShape3D_3jw7l")
 
 [node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.198803, 1.8453641)
@@ -248,5 +231,9 @@ one_shot = true
 [node name="CoolGuy" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 2.4358928, 0)
 mesh = SubResource("PlaneMesh_4gbrq")
+
+[node name="Rock6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
+mesh = ExtResource("5_wte2k")
 
 [connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]

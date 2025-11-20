@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 	
 	if power > 0 and angle > 0 and start_action == true:
 		concept_rock.throw(power, angle)
+		concept_rock.rock_cam_top.current = true
 		start_action = false
 
 
