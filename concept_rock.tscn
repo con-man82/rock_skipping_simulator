@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cafk5qcbyvd3p"]
 
 [ext_resource type="Script" uid="uid://dnxlhravpg734" path="res://concept_rock.gd" id="1_u7f1a"]
-[ext_resource type="ArrayMesh" uid="uid://bmb0so20cfybb" path="res://Assests/Rocks/rock1/rock1.obj" id="2_a5mr8"]
-[ext_resource type="Shape3D" uid="uid://cig2jon7exhba" path="res://new_concave_polygon_shape_3d.tres" id="3_2huw1"]
+[ext_resource type="ArrayMesh" uid="uid://nw4bx6304nlc" path="res://Assests/Rocks/rock2/untitled1.obj" id="2_a5mr8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2huw1"]
+points = PackedVector3Array(-0.54831827, 0.12091307, -0.54413736, 0.6869365, 0.01485756, 0.79447377, 0.60555375, 0.1706047, 0.5425001, 0.66277117, -0.012092736, -0.5297577, -0.8602713, -0.035104785, 0.027450025, -0.032925047, 0.38871667, 0.14877574, -0.23657458, 0.25094956, 0.86010027, 0.6648901, 0.25359914, -0.61116683, -0.835831, 0.22498801, 0.13155474, -0.44669577, 0.25160003, -0.73130995, -0.2938578, -0.03989385, -0.82772756, 0.1186061, -0.12829481, 0.12721425, -0.2875134, -0.034392808, 0.8036722, 0.655551, -0.05656036, 0.7636271, -0.006966713, -0.12615778, -0.120976366, 0.624963, 0.14638521, 0.708089, 0.017579084, 0.39338928, 0.07683905, -0.26630062, -0.012545285, 0.8525137, -0.8620021, -0.035486147, -0.024601785, -0.3722835, 0.17365624, -0.7959426, -0.05412835, 0.22589912, 0.8692722, -0.39769053, 0.26768714, -0.70252144, -0.10588881, -0.12535301, 0.027450025, 0.6403269, -0.03962385, 0.82797486, 0.016685769, 0.39130172, 0.1500063, -0.8640217, 0.14689001, 0.027450025, -0.7851927, 0.24307136, 0.1001265, -0.21262199, -0.03850004, -0.8208669, 0.6911059, -0.012403081, 0.10707762, 0.6072965, 0.26907346, -0.48888412, -0.23952457, 0.14711085, 0.87726665, -0.032503236, 0.39049187, 0.07628771)
 
 [node name="Rock" type="CharacterBody3D"]
 script = ExtResource("1_u7f1a")
@@ -14,9 +16,9 @@ mesh = ExtResource("2_a5mr8")
 [node name="RockArea3D" type="Area3D" parent="MeshInstance3D"]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="MeshInstance3D/RockArea3D"]
-transform = Transform3D(0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0, 0.9999998, 0, 0, 0)
-shape = ExtResource("3_2huw1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/RockArea3D"]
+transform = Transform3D(0.90909094, 0, 0, 0, 0.90909094, 0, 0, 0, 0.90909094, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_2huw1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
 

@@ -40,7 +40,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		var current_speed = speed - dragging_speed
 		var current_rotate = current_speed 
-		mesh_instance_3d.rotation.y += (rock_angle - current_rotate)
+		if current_rotate > 0:
+			mesh_instance_3d.rotation.y += (rock_angle - current_rotate)
+		else:
+			mesh_instance_3d.rotation.y = 0
 		if current_speed < 0:
 			current_speed = 0
 		velocity.x = direction.x * current_speed * (rock_angle/2)
