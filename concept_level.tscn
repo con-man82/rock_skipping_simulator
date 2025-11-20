@@ -226,7 +226,7 @@ shape = SubResource("ConcavePolygonShape3D_3jw7l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="BouncePad/FloorArea" groups=["Floor"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -65.39095, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -61.154667, 0)
 shape = SubResource("BoxShape3D_tfkvj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="BouncePad/FloorArea"]
