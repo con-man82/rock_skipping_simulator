@@ -26,6 +26,8 @@ var skip_attempt := false
 var stop_rock = false
 var rock_path = "Assests/Rocks/"
 
+signal skip_signal()
+
 func _ready() -> void:
 	#pass#rock_mesh.mesh=ROCK_7
 	var num = select_random_rock()
@@ -37,7 +39,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 
 	
-	print(skip_attempt)
+	#print(skip_attempt)
 	if skip_attempt == true:
 		if skip_velocity > dragging_speed:
 			velocity.y = skip_velocity - dragging_speed
@@ -81,14 +83,14 @@ func throw(throw_power, throw_angle) -> void:
 
 
 #When the rock enters a shape3D this happens fuction happens: (right now the water is a shape3D, so basically when the rocks area is entered by the water shape it will skip)
-func _on_rock_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
-	print("a41 ",str(body))
-	skip_attempt = true
+#func _on_rock_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
+#	print("a41 ",str(body))
+#	skip_attempt = true
 
 
-func _on_rock_area_3d_body_entered(body: Node3D) -> void:
-	print("qwe ",str(body))
-	skip_attempt = true
+#func _on_rock_area_3d_body_entered(body: Node3D) -> void:
+#	print("qwe ",str(body))
+#	skip_attempt = true
 
 
 func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
@@ -97,8 +99,10 @@ func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape
 		stop_rock = true
 	else:
 		skip_attempt = true
+		skip_signal.emit()
 	printt(str(area))
 	print("Stop_rock = ", stop_rock)
+
 
 #Connor: "OK, I figured out where time comes from!"
 

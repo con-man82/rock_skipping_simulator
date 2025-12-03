@@ -4,6 +4,7 @@ extends Node3D
 @onready var angle_amount_label: Label = $UI/Control/VBoxContainer/AngleHBoxContainer/AngleAmountLabel
 @onready var power_amount_label: Label = $UI/Control/VBoxContainer/PowerHBoxContainer/PowerAmountLabel
 @onready var bottom_text: Label = $UI/Control/BottomText
+@onready var ui: Control = $UI
 @export var slider_speed := 100
 @export var delay_wait := 0.5
 var accept_input := true
@@ -17,8 +18,8 @@ var slide_up := true
 
 #What is a comment? A miserable little pile of secrets. But enough talk… Have at you!
 func _ready() -> void:
-	power_amount_label.text = "Test"
-	angle_amount_label.text = "Test"
+	power_amount_label.text = "0"
+	angle_amount_label.text = "0"
 
 func _process(delta: float) -> void:     
 	#print(accept_input)

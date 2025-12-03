@@ -244,4 +244,5 @@ mesh = SubResource("PlaneMesh_4gbrq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
 mesh = ExtResource("5_wte2k")
 
+[connection signal="skip_signal" from="ConceptRock" to="UI" method="_on_concept_rock_skip_signal"]
 [connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]
