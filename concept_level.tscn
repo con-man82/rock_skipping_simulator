@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://mws8wx746raq"]
+[gd_scene load_steps=20 format=3 uid="uid://mws8wx746raq"]
 
 [ext_resource type="Script" uid="uid://p10ppjl1y6wb" path="res://world.gd" id="1_3jw7l"]
 [ext_resource type="PackedScene" uid="uid://cafk5qcbyvd3p" path="res://concept_rock.tscn" id="1_il3sp"]
 [ext_resource type="PackedScene" uid="uid://8tm283pwnwms" path="res://ui.tscn" id="1_rtf3t"]
+[ext_resource type="Shader" uid="uid://ccta15kcwlwng" path="res://Assests/WaterShaders/water.tres" id="3_4gbrq"]
 [ext_resource type="Texture2D" uid="uid://c5e8ia1fmef23" path="res://Assests/Characters/coolguy.webp" id="4_tfkvj"]
 [ext_resource type="ArrayMesh" uid="uid://br7q5m2wwtpfw" path="res://Assests/Rocks/rock6/rock6.obj" id="5_wte2k"]
 
@@ -19,12 +20,18 @@ sky = SubResource("Sky_il3sp")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tfkvj"]
-albedo_color = Color(0, 0.36078432, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gbrq"]
+render_priority = 0
+shader = ExtResource("3_4gbrq")
+shader_parameter/ColorParameter = Color(0.192157, 0.431373, 0.639216, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wte2k"]
-material = SubResource("StandardMaterial3D_tfkvj")
-size = Vector3(100, 1, 5000)
+lightmap_size_hint = Vector2i(10004, 5016)
+material = SubResource("ShaderMaterial_4gbrq")
+size = Vector3(1000, 1, 1000)
+subdivide_width = 20
+subdivide_height = 20
+subdivide_depth = 20
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gbrq"]
 albedo_color = Color(0.5249055, 0.43051624, 0.054982536, 1)
@@ -68,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.9900
 cull_mask = 1048573
 
 [node name="water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2980957, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2980957, -467.5406)
 mesh = SubResource("BoxMesh_wte2k")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -202,6 +209,7 @@ skeleton = NodePath("../water")
 
 [node name="BouncePad" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4341328, -132.8952)
+visible = false
 layers = 2
 mesh = SubResource("BoxMesh_rtf3t")
 
