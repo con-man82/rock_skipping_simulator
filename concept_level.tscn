@@ -23,15 +23,11 @@ glow_enabled = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4gbrq"]
 render_priority = 0
 shader = ExtResource("3_4gbrq")
-shader_parameter/ColorParameter = Color(0.192157, 0.431373, 0.639216, 1)
+shader_parameter/ColorParameter = Color(0.206008, 0.468236, 0.416507, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_wte2k"]
-lightmap_size_hint = Vector2i(10004, 5016)
+[sub_resource type="PlaneMesh" id="PlaneMesh_wrno5"]
 material = SubResource("ShaderMaterial_4gbrq")
-size = Vector3(1000, 1, 1000)
-subdivide_width = 20
-subdivide_height = 20
-subdivide_depth = 20
+size = Vector2(1000, 1000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gbrq"]
 albedo_color = Color(0.5249055, 0.43051624, 0.054982536, 1)
@@ -71,19 +67,19 @@ script = ExtResource("1_3jw7l")
 environment = SubResource("Environment_rtf3t")
 
 [node name="Camera3DForTesting" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.009249821, 4.090829, 6.258471)
+transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.009249821, 3.741444, 6.258471)
 cull_mask = 1048573
 
 [node name="water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2980957, -467.5406)
-mesh = SubResource("BoxMesh_wte2k")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9217941, -459.66006)
+mesh = SubResource("PlaneMesh_wrno5")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2824546, -60.955406, -227.55287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2824546, -98.53096, -227.55287)
 mesh = SubResource("BoxMesh_wrno5")
 
 [node name="Land" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0019462109, -0.674541, 23.902386)
+transform = Transform3D(1, 0, 0, 0, 0.99920833, 0.039783005, 0, -0.039783005, 0.99920833, -0.0019462109, 0.5429816, 13.356525)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
@@ -227,7 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.649868, 0)
 shape = SubResource("BoxShape3D_tfkvj")
 
 [node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.198803, 1.8453641)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1586356, 1.3635273)
 slide_on_ceiling = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -237,12 +233,14 @@ transform = Transform3D(0.97338325, -0.06538303, -0.21965903, 0.22918344, 0.2776
 one_shot = true
 
 [node name="CoolGuy" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 2.4358928, 0)
+transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 2.966943, -1.4338784)
 mesh = SubResource("PlaneMesh_4gbrq")
 
 [node name="Rock6" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
 mesh = ExtResource("5_wte2k")
 
+[connection signal="rock_stop" from="ConceptRock" to="UI" method="_on_concept_rock_rock_stop"]
 [connection signal="skip_signal" from="ConceptRock" to="UI" method="_on_concept_rock_skip_signal"]
+[connection signal="start_throw" from="ConceptRock" to="UI" method="_on_concept_rock_start_throw"]
 [connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]

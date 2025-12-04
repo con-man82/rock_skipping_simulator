@@ -78,7 +78,7 @@ offset_top = 19.0
 offset_right = 5.5
 offset_bottom = 42.0
 grow_horizontal = 0
-text = "Bounce Counter: (not setup)"
+text = "Bounce Counter: 0"
 
 [node name="Score" type="Label" parent="Control"]
 layout_mode = 1
@@ -90,4 +90,34 @@ offset_top = 44.0
 offset_right = 5.0
 offset_bottom = 72.0
 grow_horizontal = 0
-text = "Score: (not setup)"
+text = "Score: 0"
+
+[node name="Wind" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -448.5
+offset_top = 227.0
+offset_right = -310.5
+offset_bottom = 250.0
+text = "Wind: (not set up)"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -454.5
+offset_top = 31.0
+offset_right = -232.5
+offset_bottom = 210.0
+text = "Map
+< .............. Map ....................>
+< .............. Map ....................>
+< .............. Map ....................>
+< .............. Map ....................>
+< .............. Map ....................>
+< .............. Map ....................>"
+
+[node name="Rock Selection" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 466.5
+offset_top = 529.0
+offset_right = 642.5
+offset_bottom = 552.0
+text = "Current Rock Selection"

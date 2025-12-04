@@ -27,6 +27,8 @@ var stop_rock = false
 var rock_path = "Assests/Rocks/"
 
 signal skip_signal()
+signal start_throw()
+signal rock_stop()
 
 func _ready() -> void:
 	#pass#rock_mesh.mesh=ROCK_7
@@ -65,13 +67,14 @@ func _physics_process(delta: float) -> void:
 				rock_mesh.rotation.y += (rock_angle - current_rotate)
 			else:
 				rock_mesh.rotation.y = 0
-			if current_speed < 0:
+			if current_speed <= 0:
 				current_speed = 0
+				rock_stop.emit()
 			velocity.x = direction.x * current_speed * (rock_angle/2)
 			velocity.z = direction.z * current_speed * (rock_power/2)
 			#velocity.y = direction.y * speed
 		else:
-			velocity.y = move_toward(velocity.x, 0, speed * rock_angle)
+			velocity.y = move_toward(0, 0, speed * rock_angle)
 			velocity.z = move_toward(velocity.z, 0, speed + rock_power)
 		move_and_slide()
 
@@ -79,6 +82,7 @@ func throw(throw_power, throw_angle) -> void:
 	rock_power = throw_power
 	rock_angle = throw_angle
 	start_moving = true
+	start_throw.emit()
 	print("throwing")
 
 
@@ -97,6 +101,7 @@ func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape
 	printt("asd ",str(area))
 	if area.is_in_group("Floor"):
 		stop_rock = true
+		rock_stop.emit() #need to move somewhere for when the rock stops moving forward
 	else:
 		skip_attempt = true
 		skip_signal.emit()

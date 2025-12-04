@@ -24,10 +24,9 @@ constant = 0.8
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_ijlu1"]
 parameter_name = "ColorParameter"
 default_value_enabled = true
-default_value = Color(0.19215687, 0.43137255, 0.6392157, 1)
+default_value = Color(0.20600772, 0.46823603, 0.41650668, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kpkpr"]
-noise_type = 2
 frequency = 1.0
 cellular_distance_function = 1
 domain_warp_enabled = true
@@ -97,7 +96,7 @@ default_input_values = [0, Vector4(0, 0, 0, 0), 1, Vector4(1, 1, 1, 1), 2, Vecto
 op_type = 3
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_tiapg"]
-default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.5, 0.5, 0.5)]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(2, 2, 2)]
 operator = 2
 
 [resource]
@@ -105,7 +104,7 @@ code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_back, diffuse_lambert, specular_schlick_ggx;
 
 uniform sampler2D tex_vtx_4;
-uniform vec4 ColorParameter : source_color = vec4(0.192157, 0.431373, 0.639216, 1.000000);
+uniform vec4 ColorParameter : source_color = vec4(0.206008, 0.468236, 0.416507, 1.000000);
 uniform sampler2D tex_frg_3;
 uniform sampler2D tex_frg_7;
 instance uniform vec4 Vector4Parameter = vec4(1.250000, 1.250000, 1.250000, 1.250000);
@@ -131,7 +130,7 @@ void vertex() {
 
 
 // VectorOp:9
-	vec3 n_in9p1 = vec3(0.50000, 0.50000, 0.50000);
+	vec3 n_in9p1 = vec3(2.00000, 2.00000, 2.00000);
 	vec3 n_out9p0 = n_out6p0 * n_in9p1;
 
 
