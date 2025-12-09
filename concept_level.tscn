@@ -67,11 +67,12 @@ script = ExtResource("1_3jw7l")
 environment = SubResource("Environment_rtf3t")
 
 [node name="Camera3DForTesting" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.009249821, 3.741444, 6.258471)
+transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.43886578, 4.2334404, 0.57177186)
 cull_mask = 1048573
+current = true
 
 [node name="water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9217941, -459.66006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9239991, -459.66006)
 mesh = SubResource("PlaneMesh_wrno5")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
@@ -223,7 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.649868, 0)
 shape = SubResource("BoxShape3D_tfkvj")
 
 [node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1586356, 1.3635273)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35444117, 3.295807, -1.459476)
 slide_on_ceiling = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

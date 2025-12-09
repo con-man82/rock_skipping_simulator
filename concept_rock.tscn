@@ -29,7 +29,6 @@ shape = SubResource("ConvexPolygonShape3D_2huw1")
 [node name="RockCam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.96831787, 0.24972095, 0, -0.24972095, 0.96831787, 0, 0.4438225, 1.0577755)
 cull_mask = 1048573
-current = true
 
 [node name="RockCamTop" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
