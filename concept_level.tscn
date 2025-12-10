@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://mws8wx746raq"]
+[gd_scene load_steps=21 format=3 uid="uid://mws8wx746raq"]
 
 [ext_resource type="Script" uid="uid://p10ppjl1y6wb" path="res://world.gd" id="1_3jw7l"]
 [ext_resource type="PackedScene" uid="uid://cafk5qcbyvd3p" path="res://concept_rock.tscn" id="1_il3sp"]
@@ -26,8 +26,13 @@ shader = ExtResource("3_4gbrq")
 shader_parameter/ColorParameter = Color(0.206008, 0.468236, 0.416507, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wrno5"]
+lightmap_size_hint = Vector2i(5002, 5002)
 material = SubResource("ShaderMaterial_4gbrq")
 size = Vector2(1000, 1000)
+subdivide_width = 20
+subdivide_depth = 20
+
+[sub_resource type="PrismMesh" id="PrismMesh_4gbrq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gbrq"]
 albedo_color = Color(0.5249055, 0.43051624, 0.054982536, 1)
@@ -75,133 +80,43 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9239991, -459.66006)
 mesh = SubResource("PlaneMesh_wrno5")
 
+[node name="Land4" type="MeshInstance3D" parent="water"]
+transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
+mesh = SubResource("PrismMesh_4gbrq")
+skeleton = NodePath("../water")
+
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2824546, -98.53096, -227.55287)
 mesh = SubResource("BoxMesh_wrno5")
 
 [node name="Land" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99920833, 0.039783005, 0, -0.039783005, 0.99920833, -0.0019462109, 0.5429816, 13.356525)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land4" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.540733, 4.113959, -653.2706)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land8" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.54268, 2.4522572, -591.7661)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land9" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.544624, 2.6534095, -526.283)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land10" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.538788, 5.824092, -892.47876)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land11" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.540733, 4.16239, -830.97424)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land12" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.54268, 4.3635426, -765.4911)
+transform = Transform3D(0.99971956, -0.02358749, -0.0021125972, 0.023672856, 0.9928875, 0.11668042, -0.00065462734, -0.11669772, 0.9931676, -0.0019462109, 0.7918153, -0.3669529)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
 [node name="Land3" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.433067, 1.9321876, -194.76543)
+transform = Transform3D(0.9940148, -0.10923363, 0.0021033045, 0.10869585, 0.98681, -0.11997059, 0.0110292435, 0.119481064, 0.99277693, 56.552067, 5.215393, -68.38697)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
 [node name="Land2" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.435013, 0.27048588, -133.26091)
+transform = Transform3D(0.99203575, 0.1254544, 0.011236241, -0.12545443, 0.99209934, -0.000707604, -0.011236236, -0.0007076636, 0.9999371, -27.11029, 0.74927115, -21.236511)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
 [node name="Land" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43696, 0.4716382, -67.77785)
+transform = Transform3D(0.9963917, -0.08463068, -0.0064733434, 0.08453948, 0.9963324, -0.013258949, 0.007571716, 0.012663864, 0.99989164, 30.240612, 0.8843209, -37.05401)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land5" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43112, 3.6423206, -433.97354)
+[node name="Land" type="MeshInstance3D" parent="Land/Land"]
+transform = Transform3D(0.99685866, 0.07910743, 0.0039214687, -0.07905036, 0.99678534, -0.013049491, -0.004941168, 0.012698524, 0.99990743, -35.821552, -1.5529041, -2.5930996)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land6" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.433067, 1.980619, -372.46902)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land7" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.435013, 2.1817713, -306.98593)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land13" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.540733, 4.113959, -1590.6405)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land14" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.54268, 2.4522572, -1529.136)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land15" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.544624, 2.6534095, -1463.653)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land16" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.538788, 5.824092, -1829.8486)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land17" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.540733, 4.16239, -1768.3441)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land18" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.54268, 4.3635426, -1702.861)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land19" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.433067, 1.9321876, -1132.1353)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land20" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.435013, 0.27048588, -1070.6309)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land21" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43696, 0.4716382, -1005.1478)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land22" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.43112, 3.6423206, -1371.3435)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land23" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.433067, 1.980619, -1309.8389)
-mesh = SubResource("BoxMesh_3jw7l")
-skeleton = NodePath("../water")
-
-[node name="Land24" type="MeshInstance3D" parent="Land"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.435013, 2.1817713, -1244.3558)
-mesh = SubResource("BoxMesh_3jw7l")
+[node name="Land4" type="MeshInstance3D" parent="Land"]
+transform = Transform3D(9.711381, -1.6626245, 1.7102171, 1.6943944, 9.855326, -0.04045856, -1.6787477, 0.32906872, 9.852594, -7.839419, 0.5660443, -41.133694)
+mesh = SubResource("PrismMesh_4gbrq")
 skeleton = NodePath("../water")
 
 [node name="BouncePad" type="MeshInstance3D" parent="."]
@@ -224,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.649868, 0)
 shape = SubResource("BoxShape3D_tfkvj")
 
 [node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35444117, 3.295807, -1.459476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35444117, 4.3761187, 0.27773213)
 slide_on_ceiling = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -234,7 +149,7 @@ transform = Transform3D(0.97338325, -0.06538303, -0.21965903, 0.22918344, 0.2776
 one_shot = true
 
 [node name="CoolGuy" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 2.966943, -1.4338784)
+transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 3.7016551, -1.4338784)
 mesh = SubResource("PlaneMesh_4gbrq")
 
 [node name="Rock6" type="MeshInstance3D" parent="."]

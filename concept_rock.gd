@@ -38,6 +38,16 @@ func _ready() -> void:
 	rock_mesh.mesh = load(rock)
 	#rock_mesh.material_overlay = load(rock_path + "rock" + str(num) + "/" + "texture.*")
 
+	#I was messing around and trying to get the texture to load correctly,
+		#But ran out of time to keep messing around with it 12/9/25
+	#var rock_material = StandardMaterial3D.new()
+	#rock_material.mesh = load(rock)
+	#rock_material.albedo_texture = load(rock_path + "rock" + str(num) + "/" + "texture.*")
+	#rock_mesh.mesh.surface_set_material(0, rock_material) 
+	#rock_mesh.mesh = rock_material
+	#rock_mesh.material_overlay.albedo_texture = load(rock_texture)
+
+
 func _physics_process(delta: float) -> void:
 
 	
