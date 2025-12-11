@@ -42,7 +42,7 @@ text = "Number"
 
 [node name="AngleLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer"]
 layout_mode = 2
-text = "<--- Angle"
+text = "<--- Spin"
 
 [node name="PowerHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
 layout_mode = 2

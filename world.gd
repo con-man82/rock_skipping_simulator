@@ -1,7 +1,8 @@
 extends Node3D
+
 @onready var concept_rock: CharacterBody3D = $ConceptRock
 @onready var input_delay_timer: Timer = $InputDelayTimer
-@onready var angle_amount_label: Label = $UI/Control/VBoxContainer/AngleHBoxContainer/AngleAmountLabel
+@onready var spin_amount_label: Label = $UI/Control/VBoxContainer/AngleHBoxContainer/AngleAmountLabel
 @onready var power_amount_label: Label = $UI/Control/VBoxContainer/PowerHBoxContainer/PowerAmountLabel
 @onready var bottom_text: Label = $UI/Control/BottomText
 @onready var ui: Control = $UI
@@ -11,18 +12,18 @@ var accept_input := true
 var slideNumber := 0.00 
 var totalDelta := 0.00
 var power := 0.00
-var angle := 0.00
+var spin := 0.00
 var start_action: = false
 var reset_slide := false
 var slide_up := true
 var power_set := false
-var angle_set := false
+var spin_set := false
 var rock_x_rotation_set := false
 
 #What is a comment? A miserable little pile of secrets. But enough talk… Have at you!
 func _ready() -> void:
 	power_amount_label.text = "0"
-	angle_amount_label.text = "0"
+	spin_amount_label.text = "0"
 
 func _process(delta: float) -> void:     
 	#print(accept_input)
@@ -31,9 +32,9 @@ func _process(delta: float) -> void:
 		delay_input()
 	if start_action == true and power_set == false and accept_input == true:
 		get_power(delta)
-	if start_action == true and power_set == true and angle_set == false and accept_input == true:
+	if start_action == true and power_set == true and spin_set == false and accept_input == true:
 		get_angle(delta)
-	if start_action == true and power_set == true and angle_set == true and accept_input == true:
+	if start_action == true and power_set == true and spin_set == true and accept_input == true:
 		get_x_rotation(delta)
 		
 	if Input.is_action_just_released("restart"):
@@ -42,8 +43,8 @@ func _process(delta: float) -> void:
 	if reset_slide == true:
 		slideNumber = 0
 	
-	if power_set == true and angle_set == true and rock_x_rotation_set == true and start_action == true:
-		concept_rock.throw(power, angle)
+	if power_set == true and spin_set == true and rock_x_rotation_set == true and start_action == true:
+		concept_rock.throw(power, spin)
 		concept_rock.rock_cam_top.current = true
 		start_action = false
 		
@@ -60,10 +61,11 @@ func get_power(delta):
 		delay_input()
 
 func get_x_rotation(delta):
-	var slow_down := 5
+	var slow_down := 20
 	if slideNumber > 6:
 		slideNumber = 0
-	concept_rock.rock_mesh.rotation.x = slideNumber
+	print(str(slideNumber))
+	concept_rock.rock_mesh.rotation.x = (slideNumber/10)
 	print(str(concept_rock.rock_mesh.rotation.x))
 	slide_up = slider_direction(slide_up, 1) #1 tells slideNumber to only go as high as 30 instead of 100
 	sliding_numbers(delta/slow_down, slide_up)
@@ -75,21 +77,23 @@ func get_x_rotation(delta):
 
 func get_angle(delta):
 	#print(slideNumber)
-	angle_amount_label.text = str(int(slideNumber))
+	spin_amount_label.text = str(int(slideNumber))
 	slide_up = slider_direction(slide_up)
 	sliding_numbers(delta, slide_up)
 	if Input.is_action_just_released("power_hit") and accept_input == true:
-		angle = slideNumber
-		angle_amount_label.text = str(angle)
-		angle_set = true
+		spin = slideNumber
+		spin_amount_label.text = str(spin)
+		spin_set = true
 		delay_input()
 
 
 func slider_direction(slide_up_value, do_a_rotate:=0) -> bool:
-	if slideNumber < 0:
+	if do_a_rotate == 0 and slideNumber < 0:
 		return true
 	elif do_a_rotate == 1 and slideNumber > 5:
 		return false
+	elif do_a_rotate == 1 and slideNumber < -3:
+		return true
 	elif slideNumber > 100:
 		return false
 	else:
