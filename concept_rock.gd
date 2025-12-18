@@ -142,3 +142,17 @@ func select_random_rock():
 	print("acceptable rocks: " + str(acceptable_rocks.size()))
 
 	return randi_range(0, acceptable_rocks.size())
+
+func reaction_force_due_to_water(direction: float, velocity: float, surface_area: float) -> float:
+	# var t: float # direction of the stone's travel
+	var cf : float # lift coefficient
+	var cl : float # friction coefficient
+	var pw : float # mass density of water
+	# var s_im : float # area of the immersed surface
+	var n : float # unit vector normal to the stone (perpendicular to t)
+	# var theta : float # tilt angle
+	# var beta : float # incidence angle, angle between V and the horizontal
+	# var v : float # velocity
+
+	return (0.5 * cl * pw * pow(velocity, 2) * surface_area * n) + (0.5 * cf * pw * pow(velocity, 2) * surface_area * direction)
+
