@@ -1,8 +1,5 @@
 extends CharacterBody3D
 
-#add spinning
-#add drag - accel on bounce
-#change or randomize rocks
 
 @onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
 @onready var rock_mesh: MeshInstance3D = $Rock
@@ -44,6 +41,7 @@ func _ready() -> void:
 
 		#I was messing around and trying to get the texture to load correctly,
 			#But ran out of time to keep messing around with it 12/9/25
+		# 12/17/2025 I think it has something to do with the texture being manually added to the mesh? will test more later
 		#var rock_material = StandardMaterial3D.new()
 		#rock_material.mesh = load(rock)
 		#rock_material.albedo_texture = load(rock_path + "rock" + str(num) + "/" + "texture.*")
@@ -58,9 +56,12 @@ func _physics_process(delta: float) -> void:
 	#print(skip_attempt)
 	if skip_attempt == true:
 		if skip_velocity > dragging_speed:
-			velocity.y = skip_velocity - dragging_speed
-			skip_velocity -= 1.5
-			dragging_speed += 1  
+			skip_velocity = reaction_force_due_to_water(1, velocity.z, 1)
+			printt("SV = ", skip_velocity)
+			velocity.y = skip_velocity
+			#velocity.y = skip_velocity - dragging_speed
+			#skip_velocity -= 1.5
+			#dragging_speed += 1  
 			# add skip counter increase here
 		else:
 			pass 
@@ -146,13 +147,16 @@ func select_random_rock():
 func reaction_force_due_to_water(direction: float, velocity: float, surface_area: float) -> float:
 	# var t: float # direction of the stone's travel
 	var cf : float # lift coefficient
+	cf = .5 #temp var
 	var cl : float # friction coefficient
+	cl = .5 #temp var
 	var pw : float # mass density of water
+	pw = .5 #temp var
 	# var s_im : float # area of the immersed surface
 	var n : float # unit vector normal to the stone (perpendicular to t)
+	n = .5 #temp var
 	# var theta : float # tilt angle
 	# var beta : float # incidence angle, angle between V and the horizontal
 	# var v : float # velocity
 
 	return (0.5 * cl * pw * pow(velocity, 2) * surface_area * n) + (0.5 * cf * pw * pow(velocity, 2) * surface_area * direction)
-
