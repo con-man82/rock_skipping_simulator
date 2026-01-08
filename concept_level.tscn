@@ -65,6 +65,7 @@ size = Vector2(2, 5)
 
 [node name="ConceptLevel" type="Node3D"]
 script = ExtResource("1_3jw7l")
+rockScene = ExtResource("1_il3sp")
 
 [node name="UI" parent="." instance=ExtResource("1_rtf3t")]
 
@@ -156,7 +157,11 @@ mesh = SubResource("PlaneMesh_4gbrq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
 mesh = ExtResource("5_wte2k")
 
+[node name="DelayToNextRock" type="Timer" parent="."]
+
+[connection signal="rock_stop" from="ConceptRock" to="." method="_on_concept_rock_rock_stop"]
 [connection signal="rock_stop" from="ConceptRock" to="UI" method="_on_concept_rock_rock_stop"]
 [connection signal="skip_signal" from="ConceptRock" to="UI" method="_on_concept_rock_skip_signal"]
 [connection signal="start_throw" from="ConceptRock" to="UI" method="_on_concept_rock_start_throw"]
 [connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]
+[connection signal="timeout" from="DelayToNextRock" to="." method="_on_delay_to_next_rock_timeout"]

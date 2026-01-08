@@ -6,8 +6,11 @@ extends Node3D
 @onready var power_amount_label: Label = $UI/Control/VBoxContainer/PowerHBoxContainer/PowerAmountLabel
 @onready var bottom_text: Label = $UI/Control/BottomText
 @onready var ui: Control = $UI
+@onready var delay_to_next_rock: Timer = $DelayToNextRock
 @export var slider_speed := 100
 @export var delay_wait := 0.5
+@export var rockScene = PackedScene.new()
+var spawnRock = preload("res://concept_rock.tscn")
 var accept_input := true
 var slideNumber := 0.00 
 var totalDelta := 0.00
@@ -19,6 +22,8 @@ var slide_up := true
 var power_set := false
 var spin_set := false
 var rock_x_rotation_set := false
+@onready var camera_3d_for_testing: Camera3D = $Camera3DForTesting
+
 
 #What is a comment? A miserable little pile of secrets. But enough talk… Have at you!
 func _ready() -> void:
@@ -120,3 +125,10 @@ func delay_input() -> void:
 func _on_input_delay_timer_timeout() -> void:
 	accept_input = true
 	
+
+func _on_concept_rock_rock_stop() -> void:
+	delay_to_next_rock.start(delay_wait*15)
+
+func _on_delay_to_next_rock_timeout() -> void:
+	#add_child(spawnRock) 
+	camera_3d_for_testing.current=true
