@@ -51,7 +51,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
 	
 	#print(skip_attempt)
 	if skip_attempt == true:
@@ -143,6 +142,22 @@ func select_random_rock():
 	print("acceptable rocks: " + str(acceptable_rocks.size()))
 
 	return randi_range(0, acceptable_rocks.size())
+
+# math bullshit
+const G : float = 9.8 # gravity, m / s^2
+var cf : float = 1 # lift coefficient
+var cl : float  = 1 # friction coefficient
+const PW : float = 1000 # mass density of water
+var n : float # unit vector normal to the stone (perpendicular to t)
+var w : float = 1 # i forget what w is
+var a : float = 0.1 # area of rock object
+var d : float = 0.9 # density of rock object
+var M : float = a * d
+var theta : float = 0.75 * PI
+var C : float = cl
+#need: PW, angle/theta, 
+
+#func incidence_angle(angle: float) -> float:
 
 func reaction_force_due_to_water(direction: float, velocity: float, surface_area: float) -> float:
 	# var t: float # direction of the stone's travel
