@@ -1,19 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs4nm3qowg4mm"]
+[gd_scene format=3 uid="uid://cs4nm3qowg4mm"]
 
 [ext_resource type="Texture2D" uid="uid://ckvo588s7l6w" path="res://Assests/Images/temp Char creator.jpg" id="1_137hi"]
+[ext_resource type="Script" uid="uid://cmr7ag05kcsk2" path="res://char_creation.gd" id="1_dqbh3"]
 [ext_resource type="Texture2D" uid="uid://c1ah8j4aqlg16" path="res://Assests/Characters/Placeholders/2.png" id="2_dqbh3"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_231of"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=718982430]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dqbh3")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=689509981]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +25,7 @@ grow_vertical = 2
 texture = ExtResource("1_137hi")
 expand_mode = 5
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=1357548581]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,12 +37,12 @@ offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="BoxContainer"]
+[node name="Panel" type="Panel" parent="BoxContainer" unique_id=716284912]
 material = SubResource("CanvasItemMaterial_231of")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button Container" type="HBoxContainer" parent="BoxContainer/Panel"]
+[node name="Button Container" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=1148110966]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -54,39 +56,39 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 
-[node name="ChgNameButton" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="ChgNameButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=420869340]
 layout_mode = 2
 text = "Change Name"
 
-[node name="IncStrButton" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="IncStrButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1878640876]
 layout_mode = 2
 text = "Raise Strength"
 
-[node name="IncDexButton" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="IncDexButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=934444327]
 layout_mode = 2
 text = "Raise Dexterity "
 
-[node name="IncWilButton" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="IncWilButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1253771370]
 layout_mode = 2
 text = "Raise Willpower"
 
-[node name="IncChaButton" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="IncChaButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1373288277]
 layout_mode = 2
 text = "Raise Charisma"
 
-[node name="IncLckButton2" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="IncLckButton2" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1517402478]
 layout_mode = 2
 text = "Raise Luck"
 
-[node name="ResetStatButton" type="Button" parent="BoxContainer/Panel/Button Container"]
+[node name="ResetStatButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1605231725]
 layout_mode = 2
 text = "Reset Stats"
 
-[node name="Sprite2D" type="Sprite2D" parent="BoxContainer/Panel"]
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer/Panel" unique_id=18830066]
 position = Vector2(193, 227)
 texture = ExtResource("2_dqbh3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel" unique_id=886846113]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 145.0
@@ -95,121 +97,137 @@ offset_bottom = 357.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer" unique_id=1904411129]
 layout_mode = 2
 
-[node name="Padding" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="Padding" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=890429118]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1010126029]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1271968230]
 layout_mode = 2
 
-[node name="NameLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox"]
+[node name="NameLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox" unique_id=341301129]
 layout_mode = 2
 text = "Name: "
 
-[node name="DispNameLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox"]
+[node name="DispNameLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox" unique_id=1990576900]
 layout_mode = 2
 text = "Skip"
 
-[node name="StrHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="StrHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1317601195]
 layout_mode = 2
 
-[node name="StrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox"]
+[node name="StrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=1131824493]
 layout_mode = 2
 text = "Arm Strength: "
 
-[node name="DispStrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox"]
+[node name="DispStrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=364556296]
 layout_mode = 2
 text = "0"
 
-[node name="DexHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="DexHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=436080672]
 layout_mode = 2
 
-[node name="DexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox"]
+[node name="DexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=1640784842]
 layout_mode = 2
 text = "Finger Dexterity: "
 
-[node name="DispDexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox"]
+[node name="DispDexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=1778524981]
 layout_mode = 2
 text = "0"
 
-[node name="WilHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="WilHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=855405268]
 layout_mode = 2
 
-[node name="WilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox"]
+[node name="WilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1593570354]
 layout_mode = 2
 text = "Willpower: "
 
-[node name="DispWilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox"]
+[node name="DispWilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1324811541]
 layout_mode = 2
 text = "0"
 
-[node name="ChaHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="ChaHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2043554967]
 layout_mode = 2
 
-[node name="ChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox"]
+[node name="ChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=1791968118]
 layout_mode = 2
 text = "Charisma:"
 
-[node name="DispChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox"]
+[node name="DispChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=2005721504]
 layout_mode = 2
 text = "0"
 
-[node name="LckHbox2" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="LckHbox2" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=452058764]
 layout_mode = 2
 
-[node name="LckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2"]
+[node name="LckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=27438824]
 layout_mode = 2
 text = "Luck: "
 
-[node name="DispLckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2"]
+[node name="DispLckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=624529977]
 layout_mode = 2
 text = "0"
 
-[node name="Padding2" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer"]
+[node name="Padding2" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1944446044]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Padding3" type="Label" parent="BoxContainer/Panel/VBoxContainer"]
+[node name="Padding3" type="Label" parent="BoxContainer/Panel/VBoxContainer" unique_id=1190912298]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="StatPointsToDistributeHbox" type="HBoxContainer" parent="BoxContainer/Panel"]
+[node name="StatPointsToDistributeHbox" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=638664065]
 layout_mode = 0
 offset_left = 326.0
 offset_top = 399.0
 offset_right = 534.0
 offset_bottom = 439.0
 
-[node name="PointsLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox"]
+[node name="PointsLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox" unique_id=716878731]
 layout_mode = 2
 text = "Stat Points to Distribute: "
 
-[node name="PointsLeftLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox"]
+[node name="PointsLeftLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox" unique_id=635957070]
 layout_mode = 2
 text = "0"
 
-[node name="ChangeAvatar" type="HBoxContainer" parent="BoxContainer/Panel"]
+[node name="ChangeAvatar" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=1697875671]
 layout_mode = 0
 offset_left = 106.0
 offset_top = 84.0
 offset_right = 314.0
 offset_bottom = 124.0
 
-[node name="Button" type="Button" parent="BoxContainer/Panel/ChangeAvatar"]
+[node name="LeftSelect" type="Button" parent="BoxContainer/Panel/ChangeAvatar" unique_id=2029838158]
 layout_mode = 2
 text = "<-"
 
-[node name="PointsLabel" type="Label" parent="BoxContainer/Panel/ChangeAvatar"]
+[node name="PointsLabel" type="Label" parent="BoxContainer/Panel/ChangeAvatar" unique_id=139474070]
 layout_mode = 2
-text = "Change Avatar"
+text = "  Player Select  "
 
-[node name="Button2" type="Button" parent="BoxContainer/Panel/ChangeAvatar"]
+[node name="RightSelect" type="Button" parent="BoxContainer/Panel/ChangeAvatar" unique_id=131485031]
 layout_mode = 2
 text = "->"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=790663409]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 504.0
+offset_right = 639.0
+offset_bottom = 535.0
+size_flags_vertical = 4
+
+[node name="CreateSkipMaster" type="Button" parent="VBoxContainer2" unique_id=2082387061]
+layout_mode = 2
+text = "Create Skip Master"
+
+[connection signal="pressed" from="BoxContainer/Panel/ChangeAvatar/LeftSelect" to="." method="_on_left_select_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/ChangeAvatar/RightSelect" to="." method="_on_right_select_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CreateSkipMaster" to="." method="_on_create_skip_master_pressed"]

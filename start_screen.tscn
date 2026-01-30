@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://tiejtnodjv6n"]
+[gd_scene format=3 uid="uid://tiejtnodjv6n"]
 
 [ext_resource type="AudioStream" uid="uid://bvkqadi1f6rh2" path="res://Assests/Sounds/Music/New Recording 1029 - Copy.mp3" id="1_ncxyx"]
 [ext_resource type="Script" uid="uid://cogqgbwtoumg2" path="res://start_screen.gd" id="1_pevhg"]
@@ -6,7 +6,7 @@
 
 [sub_resource type="Theme" id="Theme_afy8x"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=618428151]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pevhg")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1582519967]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 9.0
@@ -27,7 +27,7 @@ offset_right = 1165.0
 offset_bottom = 654.0
 texture = ExtResource("2_afy8x")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1920687844]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,37 +44,47 @@ stretch_mode = 3
 alignment_horizontal = 0
 alignment_vertical = 0
 
-[node name="Panel" type="Panel" parent="AspectRatioContainer"]
+[node name="Panel" type="Panel" parent="AspectRatioContainer" unique_id=1863800974]
 layout_mode = 2
 theme = SubResource("Theme_afy8x")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer" unique_id=429999813]
 layout_mode = 2
 
-[node name="Spacer1" type="Label" parent="AspectRatioContainer/VBoxContainer"]
+[node name="Spacer1" type="Label" parent="AspectRatioContainer/VBoxContainer" unique_id=1736399356]
 layout_mode = 2
 
-[node name="GameName" type="Label" parent="AspectRatioContainer/VBoxContainer"]
+[node name="GameName" type="Label" parent="AspectRatioContainer/VBoxContainer" unique_id=503324375]
 layout_mode = 2
 text = " Project Skip Masters "
 
-[node name="Spacer2" type="Label" parent="AspectRatioContainer/VBoxContainer"]
+[node name="Spacer2" type="Label" parent="AspectRatioContainer/VBoxContainer" unique_id=99770766]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=315146241]
 layout_mode = 2
-text = "Start"
+text = "Start for Testing"
 
-[node name="Quit" type="Button" parent="AspectRatioContainer/VBoxContainer"]
+[node name="NewGame" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=97439049]
+layout_mode = 2
+text = "New Game"
+
+[node name="Continue" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=2012545728]
+layout_mode = 2
+text = "Continue"
+
+[node name="Quit" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=1198518166]
 layout_mode = 2
 text = "Quit"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=392103786]
 layout_mode = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1688218821]
 stream = ExtResource("1_ncxyx")
 autoplay = true
 
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
