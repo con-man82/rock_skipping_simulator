@@ -12,6 +12,9 @@ const ROCK_5 = preload("uid://dqnw05upv70sj")
 const ROCK_6 = preload("uid://br7q5m2wwtpfw")
 const ROCK_7 = preload("uid://bctq60oe8vry")
 
+const RockPhysics = preload("res://rock_physics.gd") 
+var physics = RockPhysics.new(0, 0, 0)
+
 var speed = 5.0
 var dragging_speed := 0.0
 var skip_velocity = 10.1
@@ -55,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	#print(skip_attempt)
 	if skip_attempt == true:
 		if skip_velocity > dragging_speed:
-			skip_velocity = reaction_force_due_to_water(1, velocity.z, 1)
+			#skip_velocity = physics.reaction_force_due_to_water(1, velocity.z, 1)
 			printt("SV = ", skip_velocity)
 			velocity.y = skip_velocity
 			#velocity.y = skip_velocity - dragging_speed
@@ -95,6 +98,9 @@ func _physics_process(delta: float) -> void:
 func throw(throw_power, throw_spin) -> void:
 	rock_power = throw_power
 	rock_spin = throw_spin
+	
+	physics.velocity = throw_power
+	
 	start_moving = true
 	start_throw.emit()
 	print("throwing")
@@ -142,36 +148,3 @@ func select_random_rock():
 	print("acceptable rocks: " + str(acceptable_rocks.size()))
 
 	return randi_range(0, acceptable_rocks.size())
-
-# math bullshit
-const G : float = 9.8 # gravity, m / s^2
-var cf : float = 1 # lift coefficient
-var cl : float  = 1 # friction coefficient
-const PW : float = 1000 # mass density of water
-var n : float # unit vector normal to the stone (perpendicular to t)
-var w : float = 1 # i forget what w is
-var a : float = 0.1 # area of rock object
-var d : float = 0.9 # density of rock object
-var M : float = a * d
-var theta : float = 0.75 * PI
-var C : float = cl
-#need: PW, angle/theta, 
-
-#func incidence_angle(angle: float) -> float:
-
-func reaction_force_due_to_water(direction: float, velocity: float, surface_area: float) -> float:
-	# var t: float # direction of the stone's travel
-	var cf : float # lift coefficient
-	cf = .5 #temp var
-	var cl : float # friction coefficient
-	cl = .5 #temp var
-	var pw : float # mass density of water
-	pw = .5 #temp var
-	# var s_im : float # area of the immersed surface
-	var n : float # unit vector normal to the stone (perpendicular to t)
-	n = .5 #temp var
-	# var theta : float # tilt angle
-	# var beta : float # incidence angle, angle between V and the horizontal
-	# var v : float # velocity
-
-	return (0.5 * cl * pw * pow(velocity, 2) * surface_area * n) + (0.5 * cf * pw * pow(velocity, 2) * surface_area * direction)
