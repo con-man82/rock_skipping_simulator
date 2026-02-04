@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mws8wx746raq"]
+[gd_scene format=3 uid="uid://mws8wx746raq"]
 
 [ext_resource type="Script" uid="uid://p10ppjl1y6wb" path="res://world.gd" id="1_3jw7l"]
 [ext_resource type="PackedScene" uid="uid://cafk5qcbyvd3p" path="res://concept_rock.tscn" id="1_il3sp"]
@@ -63,96 +63,96 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_wte2k")
 size = Vector2(2, 5)
 
-[node name="ConceptLevel" type="Node3D"]
+[node name="ConceptLevel" type="Node3D" unique_id=471344721]
 script = ExtResource("1_3jw7l")
 
-[node name="UI" parent="." instance=ExtResource("1_rtf3t")]
+[node name="UI" parent="." unique_id=412097980 instance=ExtResource("1_rtf3t")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=560763561]
 environment = SubResource("Environment_rtf3t")
 
-[node name="Camera3DForTesting" type="Camera3D" parent="."]
+[node name="Camera3DForTesting" type="Camera3D" parent="." unique_id=506590015]
 transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.43886578, 4.2334404, 0.57177186)
 cull_mask = 1048573
 current = true
 
-[node name="water" type="MeshInstance3D" parent="."]
+[node name="water" type="MeshInstance3D" parent="." unique_id=600362620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9239991, -459.66006)
 mesh = SubResource("PlaneMesh_wrno5")
 
-[node name="Land4" type="MeshInstance3D" parent="water"]
+[node name="Land4" type="MeshInstance3D" parent="water" unique_id=118361875]
 transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
 mesh = SubResource("PrismMesh_4gbrq")
 skeleton = NodePath("../water")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="." unique_id=234007392]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2824546, -98.53096, -227.55287)
 mesh = SubResource("BoxMesh_wrno5")
 
-[node name="Land" type="MeshInstance3D" parent="."]
+[node name="Land" type="MeshInstance3D" parent="." unique_id=1073820200]
 transform = Transform3D(0.99971956, -0.02358749, -0.0021125972, 0.023672856, 0.9928875, 0.11668042, -0.00065462734, -0.11669772, 0.9931676, -0.0019462109, 0.7918153, -0.3669529)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land3" type="MeshInstance3D" parent="Land"]
+[node name="Land3" type="MeshInstance3D" parent="Land" unique_id=691889436]
 transform = Transform3D(0.9940148, -0.10923363, 0.0021033045, 0.10869585, 0.98681, -0.11997059, 0.0110292435, 0.119481064, 0.99277693, 56.552067, 5.215393, -68.38697)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land2" type="MeshInstance3D" parent="Land"]
+[node name="Land2" type="MeshInstance3D" parent="Land" unique_id=473596590]
 transform = Transform3D(0.99203575, 0.1254544, 0.011236241, -0.12545443, 0.99209934, -0.000707604, -0.011236236, -0.0007076636, 0.9999371, -27.11029, 0.74927115, -21.236511)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land" type="MeshInstance3D" parent="Land"]
+[node name="Land" type="MeshInstance3D" parent="Land" unique_id=1775874673]
 transform = Transform3D(0.9963917, -0.08463068, -0.0064733434, 0.08453948, 0.9963324, -0.013258949, 0.007571716, 0.012663864, 0.99989164, 30.240612, 0.8843209, -37.05401)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land" type="MeshInstance3D" parent="Land/Land"]
+[node name="Land" type="MeshInstance3D" parent="Land/Land" unique_id=501282292]
 transform = Transform3D(0.99685866, 0.07910743, 0.0039214687, -0.07905036, 0.99678534, -0.013049491, -0.004941168, 0.012698524, 0.99990743, -35.821552, -1.5529041, -2.5930996)
 mesh = SubResource("BoxMesh_3jw7l")
 skeleton = NodePath("../water")
 
-[node name="Land4" type="MeshInstance3D" parent="Land"]
+[node name="Land4" type="MeshInstance3D" parent="Land" unique_id=1090825819]
 transform = Transform3D(9.711381, -1.6626245, 1.7102171, 1.6943944, 9.855326, -0.04045856, -1.6787477, 0.32906872, 9.852594, -7.839419, 0.5660443, -41.133694)
 mesh = SubResource("PrismMesh_4gbrq")
 skeleton = NodePath("../water")
 
-[node name="BouncePad" type="MeshInstance3D" parent="."]
+[node name="BouncePad" type="MeshInstance3D" parent="." unique_id=580065288]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4341328, -132.8952)
 visible = false
 layers = 2
 mesh = SubResource("BoxMesh_rtf3t")
 
-[node name="Area3D" type="Area3D" parent="BouncePad" groups=["Water"]]
+[node name="Area3D" type="Area3D" parent="BouncePad" unique_id=1536801193 groups=["Water"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="BouncePad/Area3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="BouncePad/Area3D" unique_id=1729864944]
 shape = SubResource("BoxShape3D_tfkvj")
 
-[node name="FloorArea" type="Area3D" parent="BouncePad" groups=["Floor"]]
+[node name="FloorArea" type="Area3D" parent="BouncePad" unique_id=2092672947 groups=["Floor"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8816023, 0)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BouncePad/FloorArea"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="BouncePad/FloorArea" unique_id=1560906778]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.649868, 0)
 shape = SubResource("BoxShape3D_tfkvj")
 
-[node name="ConceptRock" parent="." instance=ExtResource("1_il3sp")]
+[node name="ConceptRock" parent="." unique_id=1539908133 instance=ExtResource("1_il3sp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35444117, 4.3761187, 0.27773213)
 slide_on_ceiling = false
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=949487455]
 transform = Transform3D(0.97338325, -0.06538303, -0.21965903, 0.22918344, 0.27769357, 0.93293166, 0, -0.9584423, 0.28528696, 0, 8.159134, 0)
 
-[node name="InputDelayTimer" type="Timer" parent="."]
+[node name="InputDelayTimer" type="Timer" parent="." unique_id=842927257]
 one_shot = true
 
-[node name="CoolGuy" type="MeshInstance3D" parent="."]
+[node name="CoolGuy" type="MeshInstance3D" parent="." unique_id=360483994]
 transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 3.7016551, -1.4338784)
 mesh = SubResource("PlaneMesh_4gbrq")
 
-[node name="Rock6" type="MeshInstance3D" parent="."]
+[node name="Rock6" type="MeshInstance3D" parent="." unique_id=836612368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
 mesh = ExtResource("5_wte2k")
 

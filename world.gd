@@ -120,3 +120,20 @@ func delay_input() -> void:
 func _on_input_delay_timer_timeout() -> void:
 	accept_input = true
 	
+func load_data(path: String):
+	if FileAccess.file_exists(path):
+		#var file = FileAccess.open_encrypted_with_pass(path, FileAccess.READ, "secKey")
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file == null:
+			print(FileAccess.get_open_error())
+			return
+		var content = file.get_as_text()
+		file.close()
+		
+		var data = JSON.parse_string(content)
+		if data == null:
+			printerr("cannot parse %s as json")
+			return
+	else:
+		printerr("Cannot Open File")
+		get_tree().change_scene_to_file("res://char_creation.tscn")

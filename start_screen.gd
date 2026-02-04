@@ -21,9 +21,10 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 
-func load_data(path: String):
+func load_data(path: String, new_game):
 	if FileAccess.file_exists(path):
-		var file = FileAccess.open_encrypted_with_pass(path, FileAccess.READ, "secKey")
+		#var file = FileAccess.open_encrypted_with_pass(path, FileAccess.READ, "secKey")
+		var file = FileAccess.open(path, FileAccess.READ)
 		if file == null:
 			print(FileAccess.get_open_error())
 			return
@@ -40,8 +41,8 @@ func load_data(path: String):
 
 
 func _on_continue_pressed() -> void:
-	pass # Replace with function body.
+	load_data(save_dir+save_file_name, false)
 
 
 func _on_new_game_pressed() -> void:
-	load_data(save_dir+save_file_name)
+	get_tree().change_scene_to_file("res://char_creation.tscn")

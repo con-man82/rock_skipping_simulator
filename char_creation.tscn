@@ -42,63 +42,27 @@ material = SubResource("CanvasItemMaterial_231of")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button Container" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=1148110966]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 23.0
-offset_top = 103.0
-offset_right = 23.0
-offset_bottom = 134.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-
-[node name="ChgNameButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=420869340]
-layout_mode = 2
-text = "Change Name"
-
-[node name="IncStrButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1878640876]
-layout_mode = 2
-text = "Raise Strength"
-
-[node name="IncDexButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=934444327]
-layout_mode = 2
-text = "Raise Dexterity "
-
-[node name="IncWilButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1253771370]
-layout_mode = 2
-text = "Raise Willpower"
-
-[node name="IncChaButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1373288277]
-layout_mode = 2
-text = "Raise Charisma"
-
-[node name="IncLckButton2" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1517402478]
-layout_mode = 2
-text = "Raise Luck"
-
-[node name="ResetStatButton" type="Button" parent="BoxContainer/Panel/Button Container" unique_id=1605231725]
-layout_mode = 2
-text = "Reset Stats"
-
 [node name="Sprite2D" type="Sprite2D" parent="BoxContainer/Panel" unique_id=18830066]
 position = Vector2(193, 227)
 texture = ExtResource("2_dqbh3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel" unique_id=886846113]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -4.0
 offset_top = 145.0
-offset_right = 1144.0
-offset_bottom = 357.0
+offset_right = 268.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer" unique_id=1904411129]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Padding" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=890429118]
 layout_mode = 2
@@ -119,49 +83,85 @@ text = "Name: "
 layout_mode = 2
 text = "Skip"
 
+[node name="ChgNameButton" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox" unique_id=930167938]
+layout_mode = 2
+text = "Change Name"
+
 [node name="StrHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1317601195]
 layout_mode = 2
 
 [node name="StrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=1131824493]
 layout_mode = 2
-text = "Arm Strength: "
+text = "Max Distance/Power: "
 
 [node name="DispStrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=364556296]
 layout_mode = 2
 text = "0"
+
+[node name="Pow Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=61352368]
+layout_mode = 2
+text = " Pwr  Down"
+
+[node name="Pow Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=1276393428]
+layout_mode = 2
+text = "Pwr Up"
 
 [node name="DexHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=436080672]
 layout_mode = 2
 
 [node name="DexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=1640784842]
 layout_mode = 2
-text = "Finger Dexterity: "
+text = "Finger Dexterity/Spin: "
 
 [node name="DispDexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=1778524981]
 layout_mode = 2
 text = "0"
+
+[node name="Spin Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=844053912]
+layout_mode = 2
+text = " Spin  Down"
+
+[node name="Spin Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=452774702]
+layout_mode = 2
+text = " Spin Up"
 
 [node name="WilHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=855405268]
 layout_mode = 2
 
 [node name="WilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1593570354]
 layout_mode = 2
-text = "Willpower: "
+text = "Accuracy / (up/down)"
 
 [node name="DispWilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1324811541]
 layout_mode = 2
 text = "0"
+
+[node name="Acc Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1708032419]
+layout_mode = 2
+text = " Acc Down"
+
+[node name="Acc Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1469134734]
+layout_mode = 2
+text = " Acc Up"
 
 [node name="ChaHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2043554967]
 layout_mode = 2
 
 [node name="ChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=1791968118]
 layout_mode = 2
-text = "Charisma:"
+text = "Precision(left/right):"
 
 [node name="DispChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=2005721504]
 layout_mode = 2
 text = "0"
+
+[node name="Pre Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=2021386063]
+layout_mode = 2
+text = " Prec Down"
+
+[node name="Pre Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=1327423079]
+layout_mode = 2
+text = " Prec Up"
 
 [node name="LckHbox2" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=452058764]
 layout_mode = 2
@@ -173,6 +173,14 @@ text = "Luck: "
 [node name="DispLckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=624529977]
 layout_mode = 2
 text = "0"
+
+[node name="Luck Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=63188193]
+layout_mode = 2
+text = " Luck Down"
+
+[node name="Luck Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=1371594692]
+layout_mode = 2
+text = " Luck Up"
 
 [node name="Padding2" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1944446044]
 layout_mode = 2
@@ -195,7 +203,7 @@ text = "Stat Points to Distribute: "
 
 [node name="PointsLeftLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox" unique_id=635957070]
 layout_mode = 2
-text = "0"
+text = "25"
 
 [node name="ChangeAvatar" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=1697875671]
 layout_mode = 0
@@ -228,6 +236,51 @@ size_flags_vertical = 4
 layout_mode = 2
 text = "Create Skip Master"
 
+[node name="ChangeNameBoxContainer" type="BoxContainer" parent="." unique_id=457530943]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = 106.0
+offset_right = 44.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ChangeNameBoxContainer" unique_id=22726162]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="ChangeNameBoxContainer/HBoxContainer" unique_id=75939110]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Your Name"
+expand_to_text_length = true
+
+[node name="changeNameOk" type="Button" parent="ChangeNameBoxContainer/HBoxContainer" unique_id=1385041945]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Ok"
+
+[node name="Panel" type="Panel" parent="ChangeNameBoxContainer" unique_id=644587269]
+layout_mode = 2
+
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox/ChgNameButton" to="." method="_on_chg_name_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox/Pow Down" to="." method="_on_pow_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox/Pow Up" to="." method="_on_pow_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox/Spin Down" to="." method="_on_spin_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox/Spin Up" to="." method="_on_spin_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox/Acc Down" to="." method="_on_acc_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox/Acc Up" to="." method="_on_acc_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox/Pre Down" to="." method="_on_pre_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox/Pre Up" to="." method="_on_pre_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2/Luck Down" to="." method="_on_luck_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2/Luck Up" to="." method="_on_luck_up_pressed"]
 [connection signal="pressed" from="BoxContainer/Panel/ChangeAvatar/LeftSelect" to="." method="_on_left_select_pressed"]
 [connection signal="pressed" from="BoxContainer/Panel/ChangeAvatar/RightSelect" to="." method="_on_right_select_pressed"]
 [connection signal="pressed" from="VBoxContainer2/CreateSkipMaster" to="." method="_on_create_skip_master_pressed"]
+[connection signal="pressed" from="ChangeNameBoxContainer/HBoxContainer/changeNameOk" to="." method="_on_change_name_ok_pressed"]
