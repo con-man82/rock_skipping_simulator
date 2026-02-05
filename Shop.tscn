@@ -1,0 +1,236 @@
+[gd_scene format=3 uid="uid://bd0w1mghvevmd"]
+
+[node name="Control" type="Control" unique_id=1116156303]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2126897227]
+layout_mode = 0
+offset_right = 393.0
+offset_bottom = 247.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=485481157]
+layout_mode = 0
+offset_right = 377.0
+offset_bottom = 40.0
+
+[node name="Item1" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1293589415]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item1" unique_id=1232246913]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item1" unique_id=353803903]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item1" unique_id=1904456300]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item1" unique_id=528263547]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item1" unique_id=1528874454]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item1" unique_id=2043230669]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item1" unique_id=685377811]
+layout_mode = 2
+text = "Buy"
+
+[node name="Item2" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1926931983]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item2" unique_id=2011655523]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item2" unique_id=617000730]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item2" unique_id=984102539]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item2" unique_id=776432703]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item2" unique_id=1296867019]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item2" unique_id=1227091690]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item2" unique_id=290067301]
+layout_mode = 2
+text = "Buy"
+
+[node name="Item3" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=415427411]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item3" unique_id=685812083]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item3" unique_id=532099591]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item3" unique_id=562611537]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item3" unique_id=1941729042]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item3" unique_id=707121263]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item3" unique_id=1648177424]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item3" unique_id=1396831006]
+layout_mode = 2
+text = "Buy"
+
+[node name="Item4" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=316148096]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item4" unique_id=882487390]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item4" unique_id=1887065797]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item4" unique_id=110593682]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item4" unique_id=779712000]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item4" unique_id=1026414002]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item4" unique_id=822298976]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item4" unique_id=481125211]
+layout_mode = 2
+text = "Buy"
+
+[node name="Item5" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1569091329]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item5" unique_id=1264828741]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item5" unique_id=387094953]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item5" unique_id=759122535]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item5" unique_id=1860951026]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item5" unique_id=504254103]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item5" unique_id=1538040632]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item5" unique_id=41771725]
+layout_mode = 2
+text = "Buy"
+
+[node name="Item6" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1836727423]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item6" unique_id=1391173271]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item6" unique_id=620576127]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item6" unique_id=285677756]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item6" unique_id=2129613364]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item6" unique_id=727264473]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item6" unique_id=185334617]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item6" unique_id=128754933]
+layout_mode = 2
+text = "Buy"
+
+[node name="Item7" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=657165994]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="Panel/VBoxContainer/Item7" unique_id=686766280]
+layout_mode = 2
+text = " Item Name:"
+
+[node name="ActualItem" type="Label" parent="Panel/VBoxContainer/Item7" unique_id=972523667]
+layout_mode = 2
+text = "Item"
+
+[node name="Dollar" type="Label" parent="Panel/VBoxContainer/Item7" unique_id=1256276930]
+layout_mode = 2
+text = "$"
+
+[node name="Price" type="Label" parent="Panel/VBoxContainer/Item7" unique_id=1886819982]
+layout_mode = 2
+text = "0.00"
+
+[node name="Quantity" type="Label" parent="Panel/VBoxContainer/Item7" unique_id=1450376227]
+layout_mode = 2
+text = "Amount in Stock: "
+
+[node name="QntyNum" type="Label" parent="Panel/VBoxContainer/Item7" unique_id=964278708]
+layout_mode = 2
+text = "0"
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/Item7" unique_id=723485774]
+layout_mode = 2
+text = "Buy"

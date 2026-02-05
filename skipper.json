@@ -1,9 +1,10 @@
 {
-	"cha": 0,
-	"character_image": "14.png",
-	"dex": 0,
-	"luck": 0,
+	"acc": 10,
+	"character_image": "8.png",
+	"luck": 10,
+	"name": "Skip",
+	"pow": 10,
 	"power_name": "Special Ability",
-	"str": 0,
-	"wil": 0
+	"pre": 10,
+	"spin": 10
 }

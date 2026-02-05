@@ -20,10 +20,16 @@ var power_set := false
 var spin_set := false
 var rock_x_rotation_set := false
 
+var save_dir : String = "res://"
+var save_file_name : String = "skipper.json"
+var thePlayer := {}
+
 #What is a comment? A miserable little pile of secrets. But enough talk… Have at you!
 func _ready() -> void:
 	power_amount_label.text = "0"
 	spin_amount_label.text = "0"
+	load_data(save_dir+save_file_name)
+	print(thePlayer)
 
 func _process(delta: float) -> void:     
 	#print(accept_input)
@@ -36,7 +42,7 @@ func _process(delta: float) -> void:
 		get_angle(delta)
 	if start_action == true and power_set == true and spin_set == true and accept_input == true:
 		get_x_rotation(delta)
-		
+	
 	if Input.is_action_just_released("restart"):
 		get_tree().change_scene_to_file("res://start_screen.tscn")
 	
@@ -134,6 +140,7 @@ func load_data(path: String):
 		if data == null:
 			printerr("cannot parse %s as json")
 			return
+		thePlayer = data
 	else:
 		printerr("Cannot Open File")
 		get_tree().change_scene_to_file("res://char_creation.tscn")

@@ -3,6 +3,9 @@
 [ext_resource type="AudioStream" uid="uid://bvkqadi1f6rh2" path="res://Assests/Sounds/Music/New Recording 1029 - Copy.mp3" id="1_ncxyx"]
 [ext_resource type="Script" uid="uid://cogqgbwtoumg2" path="res://start_screen.gd" id="1_pevhg"]
 [ext_resource type="Texture2D" uid="uid://v8kufwnvp6p2" path="res://Assests/Images/temp title ng.jpg" id="2_afy8x"]
+[ext_resource type="AudioStream" uid="uid://147plch0trwt" path="res://Assests/Sounds/Menu/RSS_Menu Mouse Hover Sounds_C4.wav" id="3_k1na2"]
+[ext_resource type="AudioStream" uid="uid://ca5naj3dbbega" path="res://Assests/Sounds/Menu/RSS_Menu Mouse Hover Sounds_G3.wav" id="3_vdywr"]
+[ext_resource type="AudioStream" uid="uid://bty4jucd757m3" path="res://Assests/Sounds/Menu/RSS_Menu Mouse Hover Sounds_C3.wav" id="6_cdgt5"]
 
 [sub_resource type="Theme" id="Theme_afy8x"]
 
@@ -62,6 +65,7 @@ text = " Project Skip Masters "
 layout_mode = 2
 
 [node name="Start" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=315146241]
+visible = false
 layout_mode = 2
 text = "Start for Testing"
 
@@ -80,11 +84,33 @@ text = "Quit"
 [node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=392103786]
 layout_mode = 2
 
+[node name="MenuSoundExitButton" type="AudioStreamPlayer" parent="." unique_id=17835281]
+stream = ExtResource("3_vdywr")
+
+[node name="MenuSoundEnterButton" type="AudioStreamPlayer" parent="." unique_id=2095405883]
+stream = ExtResource("3_k1na2")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1688218821]
 stream = ExtResource("1_ncxyx")
 autoplay = true
 
+[node name="Button3" type="AudioStreamPlayer" parent="." unique_id=1634993912]
+stream = ExtResource("6_cdgt5")
+
+[node name="Button2" type="AudioStreamPlayer" parent="." unique_id=1646631230]
+stream = ExtResource("3_vdywr")
+
+[node name="Button1" type="AudioStreamPlayer" parent="." unique_id=2122966528]
+stream = ExtResource("3_k1na2")
+
+[connection signal="focus_entered" from="AspectRatioContainer/VBoxContainer/Start" to="." method="_play_menu_enter_sound"]
+[connection signal="focus_exited" from="AspectRatioContainer/VBoxContainer/Start" to="." method="_play_menu_enter_sound"]
+[connection signal="mouse_entered" from="AspectRatioContainer/VBoxContainer/Start" to="." method="_play_menu_exit_sound"]
+[connection signal="mouse_exited" from="AspectRatioContainer/VBoxContainer/Start" to="." method="_play_menu_exit_sound"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="AspectRatioContainer/VBoxContainer/NewGame" to="." method="_on_new_game_mouse_entered"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="AspectRatioContainer/VBoxContainer/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="AspectRatioContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

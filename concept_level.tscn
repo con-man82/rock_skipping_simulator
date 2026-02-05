@@ -8,7 +8,9 @@
 [ext_resource type="ArrayMesh" uid="uid://br7q5m2wwtpfw" path="res://Assests/Rocks/rock6/rock6.obj" id="5_wte2k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8u74"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_top_color = Color(0.26396942, 0.52872473, 0.90617746, 1)
+sky_horizon_color = Color(0.91422784, 0.5786776, 0.3348913, 1)
+ground_bottom_color = Color(0.5953101, 0.45608878, 0.14114612, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_il3sp"]
@@ -79,6 +81,15 @@ current = true
 [node name="water" type="MeshInstance3D" parent="." unique_id=600362620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9239991, -459.66006)
 mesh = SubResource("PlaneMesh_wrno5")
+
+[node name="water" type="MeshInstance3D" parent="water" unique_id=1620776627]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2854843, -0.9239991, -999.9695)
+mesh = SubResource("PlaneMesh_wrno5")
+
+[node name="Land4" type="MeshInstance3D" parent="water/water" unique_id=1196469786]
+transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
+mesh = SubResource("PrismMesh_4gbrq")
+skeleton = NodePath("../water")
 
 [node name="Land4" type="MeshInstance3D" parent="water" unique_id=118361875]
 transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)

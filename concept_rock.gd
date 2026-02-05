@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-@onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
+#@onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
 @onready var rock_mesh: MeshInstance3D = $Rock
 @onready var rock_cam_top: Camera3D = $RockCamTop
 
@@ -25,6 +25,7 @@ var moving_dir_forward := 0
 var skip_attempt := false
 var stop_rock = false
 var rock_path = "Assests/Rocks/"
+
 
 signal skip_signal()
 signal start_throw()
