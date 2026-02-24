@@ -85,7 +85,7 @@ func _on_create_skip_master_pressed() -> void:
 	var json_string = JSON.stringify(playerToSaveDict, "\t")
 	file.store_string(json_string)
 	file.close()
-	get_tree().change_scene_to_file("res://concept_level.tscn")
+	get_tree().change_scene_to_file("res://rock_search.tscn")
 
 
 func _on_left_select_pressed() -> void:
