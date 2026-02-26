@@ -8,6 +8,7 @@ extends Node3D
 @onready var ui: Control = $UI
 @export var slider_speed := 100
 @export var delay_wait := 0.5
+@export var test_power := 100.1
 var accept_input := true
 var slideNumber := 0.00 
 var totalDelta := 0.00
@@ -61,7 +62,9 @@ func get_power(delta):
 	slide_up = slider_direction(slide_up)
 	sliding_numbers(delta, slide_up)
 	if Input.is_action_just_released("power_hit") and accept_input == true:
-		power = slideNumber
+		#power = slideNumber put back when not using var test_power
+		
+		power = test_power #for testing power
 		power_amount_label.text = str(power)
 		power_set = true
 		delay_input()
