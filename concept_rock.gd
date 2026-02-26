@@ -40,10 +40,9 @@ func _ready() -> void:
 	#pass#rock_mesh.mesh=ROCK_7
 
 	dragon_speed = abs(physics.loss_due_to_kinetic_energy()) / 3000
+	# dragon_speed = abs(reaction_force) / 2000
 	print("Loss from KE: " + str(dragon_speed))
 	
-	reaction_force = physics.reaction_force_due_to_water()
-	print("Reaction Force: " + str(reaction_force))
 
 	if testing == false:
 		var num = select_random_rock()
@@ -65,7 +64,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	#print(skip_attempt)
 	if skip_attempt == true:
 		if skip_velocity > 0:
 			printt("SV = ", skip_velocity)
@@ -73,40 +71,43 @@ func _physics_process(delta: float) -> void:
 		else:
 			pass 
 		skip_attempt = false
-		
+
 
 	if start_moving == true:
 		moving_dir_forward = -1
 		start_moving = false
 	var direction := (transform.basis * Vector3(0, moving_dir_forward, moving_dir_forward)).normalized()
 	if stop_rock == false:
-		#gravity
+		#gravity, very important!!!
 		velocity += get_gravity() * delta
-		if direction:
-			var current_speed = speed - dragging_speed
-			var current_rotate = current_speed 
-			if current_rotate > 0:
-				rock_mesh.rotation.y += (rock_spin) #- current_rotate)
-			else:
-				rock_mesh.rotation.y = 0
-			if current_speed <= 0:
-				current_speed = 0
-				rock_stop.emit()
-			velocity.x = direction.x * current_speed * (rock_power/2)
-			velocity.z = direction.z * current_speed * (rock_power/2)
-		else:
+		if not direction:
 			velocity.y = move_toward(0, 0, speed * rock_spin)
 			velocity.z = move_toward(velocity.z, 0, speed + rock_power)
 			physics.throw(direction.y, velocity.y)
+		else:
+			var current_speed = speed - dragging_speed
+			var current_rotate = rock_spin
+			if current_rotate > 0:
+				rock_mesh.rotation.y += (rock_spin) #- current_rotate)
+			velocity.x = direction.x * current_speed * (rock_power/2)
+			velocity.z = direction.z * current_speed * (rock_power/2)
 		move_and_slide()
 
+# func throw(throw_power, throw_spin, throw_angle) -> void:
 func throw(throw_power, throw_spin) -> void:
 	rock_power = throw_power
 	rock_spin = throw_spin
-	
+	# rock_angle = throw_angle
+
 	skip_velocity = throw_power
 	
 	printt("Initial SV = ", skip_velocity)
+
+	# print("throw angle: ", throw_angle)
+	# physics.throw(throw_power, throw_angle)
+
+	# reaction_force = physics.loss_due_to_kinetic_energy()
+	# print("loss: ", reaction_force)
 	
 	start_moving = true
 	start_throw.emit()
@@ -120,10 +121,9 @@ func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape
 		rock_stop.emit() #need to move somewhere for when the rock stops moving forward
 	else:
 		skip_attempt = true
-		skip_signal.emit()
 		skip_velocity = skip_velocity - dragon_speed
 		print("I'm entered. Speed should be: " + str(skip_velocity))
-		num_bounces += 1
+		skip_signal.emit()
 	print("Stop_rock = ", stop_rock)
 
 
