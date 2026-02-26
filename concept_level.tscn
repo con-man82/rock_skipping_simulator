@@ -172,4 +172,7 @@ mesh = ExtResource("5_wte2k")
 transform = Transform3D(0.13566372, 0, 0.9907549, 0, 1, 0, -0.9907549, 0, 0.13566372, -894.1439, -13.742043, -241.01485)
 mesh = ExtResource("7_wrno5")
 
+[connection signal="rock_stop" from="ConceptRock" to="UI" method="_on_concept_rock_rock_stop"]
+[connection signal="skip_signal" from="ConceptRock" to="UI" method="_on_concept_rock_skip_signal"]
+[connection signal="start_throw" from="ConceptRock" to="UI" method="_on_concept_rock_start_throw"]
 [connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]

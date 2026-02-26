@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxerhfm5yqaxk"
-path.s3tc="res://.godot/imported/IMG_1291.png-e64a9bd71dac2b9356d9fccc45aafc6d.s3tc.ctex"
+uid="uid://cmitc4qr57njn"
+path.s3tc="res://.godot/imported/NSB Rock 9.jpg-664b4203a2b916e1038e398e78db81bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assests/Characters/Placeholders/IMG_1291.png"
-dest_files=["res://.godot/imported/IMG_1291.png-e64a9bd71dac2b9356d9fccc45aafc6d.s3tc.ctex"]
+source_file="res://Assests/Images/NSB Rock 9.jpg"
+dest_files=["res://.godot/imported/NSB Rock 9.jpg-664b4203a2b916e1038e398e78db81bd.s3tc.ctex"]
 
 [params]
 

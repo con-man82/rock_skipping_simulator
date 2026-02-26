@@ -1,5 +1,35 @@
 [gd_scene format=3 uid="uid://bd0w1mghvevmd"]
 
+[ext_resource type="Texture2D" uid="uid://cmitc4qr57njn" path="res://Assests/Images/NSB Rock 9.jpg" id="1_c53l5"]
+[ext_resource type="Texture2D" uid="uid://bxerhfm5yqaxk" path="res://Assests/Characters/Placeholders/IMG_1291.png" id="2_7ae35"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f511j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_c0ofq"]
+sky_material = SubResource("ProceduralSkyMaterial_f511j")
+
+[sub_resource type="Environment" id="Environment_svtxo"]
+background_mode = 2
+sky = SubResource("Sky_c0ofq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ae35"]
+albedo_texture = ExtResource("1_c53l5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f511j"]
+material = SubResource("StandardMaterial3D_7ae35")
+size = Vector2(3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odqjv"]
+albedo_texture = ExtResource("2_7ae35")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vdbi3"]
+material = SubResource("StandardMaterial3D_odqjv")
+size = Vector2(0.5, 1)
+
 [node name="Control" type="Control" unique_id=1116156303]
 layout_mode = 3
 anchors_preset = 15
@@ -234,3 +264,22 @@ text = "0"
 [node name="Button" type="Button" parent="Panel/VBoxContainer/Item7" unique_id=723485774]
 layout_mode = 2
 text = "Buy"
+
+[node name="Level" type="Node3D" parent="." unique_id=564032282]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level" unique_id=625241882]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level" unique_id=1033468230]
+environment = SubResource("Environment_svtxo")
+
+[node name="Camera3D" type="Camera3D" parent="Level" unique_id=583333921]
+transform = Transform3D(1, 0, 0, 0, -0.02383891, 0.99971586, 0, -0.99971586, -0.02383891, 0, 1.0909421, 0)
+
+[node name="Background" type="MeshInstance3D" parent="Level" unique_id=1666287412]
+mesh = SubResource("PlaneMesh_f511j")
+
+[node name="NPC" type="MeshInstance3D" parent="Level" unique_id=624775872]
+transform = Transform3D(0.99828, 0, 0.05862688, 0, 1, 0, -0.05862688, 0, 0.99828, 0.85474896, 0.0673641, 0.34660834)
+mesh = SubResource("PlaneMesh_vdbi3")

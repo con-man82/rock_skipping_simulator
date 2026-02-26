@@ -71,6 +71,7 @@ func intro()->void:
 			npc_text_box.visible = false
 			intro_txt_prog = 0
 			first_time = false
+			searching = true
 		delay_input()
 
 func chat_with_NPC()->void:

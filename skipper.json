@@ -1,10 +1,15 @@
 {
-	"acc": 0,
+	"acc": 0.0,
 	"character_image": "14.png",
-	"luck": 0,
+	"luck": 0.0,
 	"name": "Skip",
-	"pow": 0,
+	"pow": 0.0,
 	"power_name": "Special Ability",
-	"pre": 0,
-	"spin": 0
+	"pre": 0.0,
+	"rocks": [
+		{
+			"type": "Test"
+		}
+	],
+	"spin": 0.0
 }
