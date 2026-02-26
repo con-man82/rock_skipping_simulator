@@ -51,7 +51,7 @@ func reaction_force_due_to_water() -> float:
 
 # FIGURE OUT RELATIONSHIP
 func loss_due_to_kinetic_energy():
-	return - u() * self.M * G * l()
+	return - u() * M * G * l()
 
 # NOT CALLED DIRECTLY
 func u():
@@ -60,6 +60,6 @@ func u():
 # NOT CALLED DIRECTLY
 # theta is incidence angle, angle between surface of the rock and surface of water on collision
 func l():
-	return 2 * PI * sqrt((w * self.M * sin(theta)) / C * PW * a)
+	return 2 * PI * sqrt((w * M * sin(theta)) / C * PW * a)
 
 # no y direction on pitty pat? what about the end (hockey stick shaped trajectory)

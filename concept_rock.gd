@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-#@onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
+@onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
 @onready var rock_mesh: MeshInstance3D = $Rock
 @onready var rock_cam_top: Camera3D = $RockCamTop
 
@@ -24,7 +24,11 @@ var moving_dir_forward := 0
 var skip_attempt := false
 var stop_rock = false
 var rock_path = "Assests/Rocks/"
+var num_bounces = 0
 
+var physics = RockPhysics.new(3, 2.8, 10)
+var dragon_speed : float
+var reaction_force : float
 
 signal skip_signal()
 signal start_throw()
@@ -37,7 +41,9 @@ func _ready() -> void:
 
 	dragon_speed = abs(physics.loss_due_to_kinetic_energy()) / 2000
 	print("Loss from KE: " + str(dragon_speed))
-	#temp_vel = physics.velocity
+	
+	reaction_force = physics.reaction_force_due_to_water()
+	print("Reaction Force: " + str(reaction_force))
 
 	if testing == false:
 		var num = select_random_rock()
@@ -59,20 +65,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	#skip_velocity = physics.velocity
-	
 	#print(skip_attempt)
 	if skip_attempt == true:
-		#if skip_velocity > dragging_speed:
 		if skip_velocity > 0:
-			#skip_velocity = physics.reaction_force_due_to_water(1, velocity.z, 1)
 			printt("SV = ", skip_velocity)
 			velocity.y = skip_velocity
-			# velocity.y = skip_velocity - dragging_speed
-			# print("y_velocity: " + str(velocity.y))
-			#skip_velocity -= 1.5
-			#dragging_speed += 1  
-			# add skip counter increase here
 		else:
 			pass 
 		skip_attempt = false
@@ -87,7 +84,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 		if direction:
 			var current_speed = speed - dragging_speed
-			#var current_speed = speed - dragon_speed
 			var current_rotate = current_speed 
 			if current_rotate > 0:
 				rock_mesh.rotation.y += (rock_spin) #- current_rotate)
@@ -98,21 +94,17 @@ func _physics_process(delta: float) -> void:
 				rock_stop.emit()
 			velocity.x = direction.x * current_speed * (rock_power/2)
 			velocity.z = direction.z * current_speed * (rock_power/2)
-			# velocity.y = direction.y * current_speed * (rock_power/2)
-			# print("Y speed" + str(velocity.y))
-			#velocity.y = direction.y * speed
 		else:
 			velocity.y = move_toward(0, 0, speed * rock_spin)
 			velocity.z = move_toward(velocity.z, 0, speed + rock_power)
+			physics.throw(direction.y, velocity.y)
 		move_and_slide()
 
 func throw(throw_power, throw_spin) -> void:
 	rock_power = throw_power
 	rock_spin = throw_spin
 	
-	physics.velocity = throw_power
-	#temp_vel	 = physics.velocity
-	skip_velocity = physics.velocity
+	skip_velocity = throw_power
 	
 	printt("Initial SV = ", skip_velocity)
 	
@@ -122,29 +114,16 @@ func throw(throw_power, throw_spin) -> void:
 
 
 #When the rock enters a shape3D this happens fuction happens: (right now the water is a shape3D, so basically when the rocks area is entered by the water shape it will skip)
-#func _on_rock_area_3d_body_shape_entered(body_rid: RID, body: Node3D, body_shape_index: int, local_shape_index: int) -> void:
-#	print("a41 ",str(body))
-#	skip_attempt = true
-
-
-#func _on_rock_area_3d_body_entered(body: Node3D) -> void:
-#	print("qwe ",str(body))
-#	skip_attempt = true
-
-
 func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
-	printt("asd ",str(area))
-	#temp_vel = temp_vel - dragon_speed
-	#print("I'm entered. Speed should be: " + str(temp_vel))
-	skip_velocity = skip_velocity - dragon_speed
-	print("I'm entered. Speed should be: " + str(skip_velocity))
 	if area.is_in_group("Floor"):
 		stop_rock = true
 		rock_stop.emit() #need to move somewhere for when the rock stops moving forward
 	else:
 		skip_attempt = true
 		skip_signal.emit()
-	printt("area " + str(area))
+		skip_velocity = skip_velocity - dragon_speed
+		print("I'm entered. Speed should be: " + str(skip_velocity))
+		num_bounces += 1
 	print("Stop_rock = ", stop_rock)
 
 
