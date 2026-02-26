@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca5naj3dbbega"
+path="res://.godot/imported/RSS_Menu Mouse Hover Sounds_G3.wav-518b153ffb2147a168fbcc1b37dfa4c4.sample"
+
+[deps]
+
+source_file="res://Assests/Sounds/Menu/RSS_Menu Mouse Hover Sounds_G3.wav"
+dest_files=["res://.godot/imported/RSS_Menu Mouse Hover Sounds_G3.wav-518b153ffb2147a168fbcc1b37dfa4c4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

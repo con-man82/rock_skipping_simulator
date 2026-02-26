@@ -6,11 +6,8 @@ extends Node3D
 @onready var power_amount_label: Label = $UI/Control/VBoxContainer/PowerHBoxContainer/PowerAmountLabel
 @onready var bottom_text: Label = $UI/Control/BottomText
 @onready var ui: Control = $UI
-@onready var delay_to_next_rock: Timer = $DelayToNextRock
 @export var slider_speed := 100
 @export var delay_wait := 0.5
-@export var rockScene = PackedScene.new()
-var spawnRock = preload("res://concept_rock.tscn")
 var accept_input := true
 var slideNumber := 0.00 
 var totalDelta := 0.00
@@ -22,13 +19,17 @@ var slide_up := true
 var power_set := false
 var spin_set := false
 var rock_x_rotation_set := false
-@onready var camera_3d_for_testing: Camera3D = $Camera3DForTesting
 
+var save_dir : String = "res://"
+var save_file_name : String = "skipper.json"
+var thePlayer := {}
 
 #What is a comment? A miserable little pile of secrets. But enough talk… Have at you!
 func _ready() -> void:
 	power_amount_label.text = "0"
 	spin_amount_label.text = "0"
+	load_data(save_dir+save_file_name)
+	print(thePlayer)
 
 func _process(delta: float) -> void:     
 	#print(accept_input)
@@ -41,7 +42,7 @@ func _process(delta: float) -> void:
 		get_angle(delta)
 	if start_action == true and power_set == true and spin_set == true and accept_input == true:
 		get_x_rotation(delta)
-		
+	
 	if Input.is_action_just_released("restart"):
 		get_tree().change_scene_to_file("res://start_screen.tscn")
 	
@@ -125,10 +126,21 @@ func delay_input() -> void:
 func _on_input_delay_timer_timeout() -> void:
 	accept_input = true
 	
-
-func _on_concept_rock_rock_stop() -> void:
-	delay_to_next_rock.start(delay_wait*15)
-
-func _on_delay_to_next_rock_timeout() -> void:
-	#add_child(spawnRock) 
-	camera_3d_for_testing.current=true
+func load_data(path: String):
+	if FileAccess.file_exists(path):
+		#var file = FileAccess.open_encrypted_with_pass(path, FileAccess.READ, "secKey")
+		var file = FileAccess.open(path, FileAccess.READ)
+		if file == null:
+			print(FileAccess.get_open_error())
+			return
+		var content = file.get_as_text()
+		file.close()
+		
+		var data = JSON.parse_string(content)
+		if data == null:
+			printerr("cannot parse %s as json")
+			return
+		thePlayer = data
+	else:
+		printerr("Cannot Open File")
+		get_tree().change_scene_to_file("res://char_creation.tscn")

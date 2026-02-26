@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://cs4nm3qowg4mm"]
+
+[ext_resource type="Texture2D" uid="uid://ckvo588s7l6w" path="res://Assests/Images/temp Char creator.jpg" id="1_137hi"]
+[ext_resource type="Script" uid="uid://cmr7ag05kcsk2" path="res://char_creation.gd" id="1_dqbh3"]
+[ext_resource type="Texture2D" uid="uid://c1ah8j4aqlg16" path="res://Assests/Characters/Placeholders/2.png" id="2_dqbh3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_231of"]
+
+[node name="Control" type="Control" unique_id=718982430]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dqbh3")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=689509981]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_137hi")
+expand_mode = 5
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=1357548581]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 66.0
+offset_right = -140.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="BoxContainer" unique_id=716284912]
+material = SubResource("CanvasItemMaterial_231of")
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxContainer/Panel" unique_id=18830066]
+position = Vector2(193, 227)
+texture = ExtResource("2_dqbh3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel" unique_id=886846113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 145.0
+offset_right = 268.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer" unique_id=1904411129]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Padding" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=890429118]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1010126029]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1271968230]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox" unique_id=341301129]
+layout_mode = 2
+text = "Name: "
+
+[node name="DispNameLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox" unique_id=1990576900]
+layout_mode = 2
+text = "Skip"
+
+[node name="ChgNameButton" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox" unique_id=930167938]
+layout_mode = 2
+text = "Change Name"
+
+[node name="StrHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1317601195]
+layout_mode = 2
+
+[node name="StrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=1131824493]
+layout_mode = 2
+text = "Max Distance/Power: "
+
+[node name="DispStrLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=364556296]
+layout_mode = 2
+text = "0"
+
+[node name="Pow Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=61352368]
+layout_mode = 2
+text = " Pwr  Down"
+
+[node name="Pow Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox" unique_id=1276393428]
+layout_mode = 2
+text = "Pwr Up"
+
+[node name="DexHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=436080672]
+layout_mode = 2
+
+[node name="DexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=1640784842]
+layout_mode = 2
+text = "Finger Dexterity/Spin: "
+
+[node name="DispDexLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=1778524981]
+layout_mode = 2
+text = "0"
+
+[node name="Spin Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=844053912]
+layout_mode = 2
+text = " Spin  Down"
+
+[node name="Spin Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox" unique_id=452774702]
+layout_mode = 2
+text = " Spin Up"
+
+[node name="WilHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=855405268]
+layout_mode = 2
+
+[node name="WilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1593570354]
+layout_mode = 2
+text = "Accuracy / (up/down)"
+
+[node name="DispWilLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1324811541]
+layout_mode = 2
+text = "0"
+
+[node name="Acc Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1708032419]
+layout_mode = 2
+text = " Acc Down"
+
+[node name="Acc Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox" unique_id=1469134734]
+layout_mode = 2
+text = " Acc Up"
+
+[node name="ChaHbox" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2043554967]
+layout_mode = 2
+
+[node name="ChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=1791968118]
+layout_mode = 2
+text = "Precision(left/right):"
+
+[node name="DispChaLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=2005721504]
+layout_mode = 2
+text = "0"
+
+[node name="Pre Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=2021386063]
+layout_mode = 2
+text = " Prec Down"
+
+[node name="Pre Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox" unique_id=1327423079]
+layout_mode = 2
+text = " Prec Up"
+
+[node name="LckHbox2" type="HBoxContainer" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=452058764]
+layout_mode = 2
+
+[node name="LckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=27438824]
+layout_mode = 2
+text = "Luck: "
+
+[node name="DispLckLabel" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=624529977]
+layout_mode = 2
+text = "0"
+
+[node name="Luck Down" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=63188193]
+layout_mode = 2
+text = " Luck Down"
+
+[node name="Luck Up" type="Button" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2" unique_id=1371594692]
+layout_mode = 2
+text = " Luck Up"
+
+[node name="Padding2" type="Label" parent="BoxContainer/Panel/VBoxContainer/HBoxContainer" unique_id=1944446044]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Padding3" type="Label" parent="BoxContainer/Panel/VBoxContainer" unique_id=1190912298]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatPointsToDistributeHbox" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=638664065]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 399.0
+offset_right = 534.0
+offset_bottom = 439.0
+
+[node name="PointsLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox" unique_id=716878731]
+layout_mode = 2
+text = "Stat Points to Distribute: "
+
+[node name="PointsLeftLabel" type="Label" parent="BoxContainer/Panel/StatPointsToDistributeHbox" unique_id=635957070]
+layout_mode = 2
+text = "25"
+
+[node name="ChangeAvatar" type="HBoxContainer" parent="BoxContainer/Panel" unique_id=1697875671]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 84.0
+offset_right = 314.0
+offset_bottom = 124.0
+
+[node name="LeftSelect" type="Button" parent="BoxContainer/Panel/ChangeAvatar" unique_id=2029838158]
+layout_mode = 2
+text = "<-"
+
+[node name="PointsLabel" type="Label" parent="BoxContainer/Panel/ChangeAvatar" unique_id=139474070]
+layout_mode = 2
+text = "  Player Select  "
+
+[node name="RightSelect" type="Button" parent="BoxContainer/Panel/ChangeAvatar" unique_id=131485031]
+layout_mode = 2
+text = "->"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=790663409]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 504.0
+offset_right = 639.0
+offset_bottom = 535.0
+size_flags_vertical = 4
+
+[node name="CreateSkipMaster" type="Button" parent="VBoxContainer2" unique_id=2082387061]
+layout_mode = 2
+text = "Create Skip Master"
+
+[node name="ChangeNameBoxContainer" type="BoxContainer" parent="." unique_id=457530943]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = 106.0
+offset_right = 44.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ChangeNameBoxContainer" unique_id=22726162]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="ChangeNameBoxContainer/HBoxContainer" unique_id=75939110]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Your Name"
+expand_to_text_length = true
+
+[node name="changeNameOk" type="Button" parent="ChangeNameBoxContainer/HBoxContainer" unique_id=1385041945]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Ok"
+
+[node name="Panel" type="Panel" parent="ChangeNameBoxContainer" unique_id=644587269]
+layout_mode = 2
+
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/NameHbox/ChgNameButton" to="." method="_on_chg_name_button_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox/Pow Down" to="." method="_on_pow_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/StrHbox/Pow Up" to="." method="_on_pow_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox/Spin Down" to="." method="_on_spin_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/DexHbox/Spin Up" to="." method="_on_spin_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox/Acc Down" to="." method="_on_acc_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/WilHbox/Acc Up" to="." method="_on_acc_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox/Pre Down" to="." method="_on_pre_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/ChaHbox/Pre Up" to="." method="_on_pre_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2/Luck Down" to="." method="_on_luck_down_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/VBoxContainer/HBoxContainer/VBoxContainer/LckHbox2/Luck Up" to="." method="_on_luck_up_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/ChangeAvatar/LeftSelect" to="." method="_on_left_select_pressed"]
+[connection signal="pressed" from="BoxContainer/Panel/ChangeAvatar/RightSelect" to="." method="_on_right_select_pressed"]
+[connection signal="pressed" from="VBoxContainer2/CreateSkipMaster" to="." method="_on_create_skip_master_pressed"]
+[connection signal="pressed" from="ChangeNameBoxContainer/HBoxContainer/changeNameOk" to="." method="_on_change_name_ok_pressed"]
