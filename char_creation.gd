@@ -77,6 +77,9 @@ func _on_create_skip_master_pressed() -> void:
 	var playerToSaveDict : Dictionary
 	playerToSaveDict = charOptionsArray[currentSelect]
 	playerToSaveDict["name"] = playerName
+	playerToSaveDict["Inventory"] = []
+	playerToSaveDict["Money"] = 1.01
+	playerToSaveDict["BucketSize"] = 3
 	var save_dir : String = "res://"
 	var save_file_name : String = "skipper.json"
 	print("Character Created = ", playerToSaveDict)

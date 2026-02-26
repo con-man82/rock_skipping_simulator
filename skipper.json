@@ -1,15 +1,17 @@
 {
-	"acc": 0.0,
-	"character_image": "14.png",
-	"luck": 0.0,
+	"BucketSize": 3.0,
+	"Inventory": [],
+	"acc": 5.0,
+	"character_image": "17.png",
+	"luck": 5.0,
 	"name": "Skip",
-	"pow": 0.0,
+	"pow": 5.0,
 	"power_name": "Special Ability",
-	"pre": 0.0,
+	"pre": 5.0,
 	"rocks": [
 		{
 			"type": "Test"
 		}
 	],
-	"spin": 0.0
+	"spin": 5.0
 }
