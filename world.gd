@@ -73,9 +73,9 @@ func get_x_rotation(delta):
 	var slow_down := 20
 	if slideNumber > 6:
 		slideNumber = 0
-	print(str(slideNumber))
+	#print(str(slideNumber))
 	concept_rock.rock_mesh.rotation.x = (slideNumber/10)
-	print(str(concept_rock.rock_mesh.rotation.x))
+	#print(str(concept_rock.rock_mesh.rotation.x))
 	slide_up = slider_direction(slide_up, 1) #1 tells slideNumber to only go as high as 30 instead of 100
 	sliding_numbers(delta/slow_down, slide_up)
 	if Input.is_action_just_released("power_hit") and accept_input == true:

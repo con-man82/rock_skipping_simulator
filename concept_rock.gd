@@ -39,7 +39,7 @@ var testing := true
 func _ready() -> void:
 	#pass#rock_mesh.mesh=ROCK_7
 
-	dragon_speed = abs(physics.loss_due_to_kinetic_energy()) / 2000
+	dragon_speed = abs(physics.loss_due_to_kinetic_energy()) / 3000
 	print("Loss from KE: " + str(dragon_speed))
 	
 	reaction_force = physics.reaction_force_due_to_water()
