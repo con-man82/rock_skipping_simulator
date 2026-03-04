@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cafk5qcbyvd3p"]
+[gd_scene format=3 uid="uid://cafk5qcbyvd3p"]
 
 [ext_resource type="Script" uid="uid://dnxlhravpg734" path="res://concept_rock.gd" id="1_u7f1a"]
 [ext_resource type="Texture2D" uid="uid://cjdbrvujd2wcx" path="res://Assests/Rocks/teststone/texture.jpg" id="2_2huw1"]
@@ -11,30 +11,34 @@ texture_filter = 0
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x4k6k"]
 points = PackedVector3Array(0.24414696, 0.019012611, 0.17851323, 0.25035477, -0.026269048, 0.18258329, 0.25035477, -0.026269048, -0.18288328, -0.060276974, 0.028559525, -0.2742499, -0.09683472, 0.028559525, 0.27394992, -0.30706906, -0.026269048, -0.009252311, 0.24118805, 0.028559525, -0.17372371, -0.09683472, -0.026269048, 0.29226905, -0.09683472, -0.026269048, -0.29256904, -0.28873563, 0.028559525, -0.018354626, 0.22285461, 0.028559525, 0.18258329, -0.28873563, 0.028559525, 0.018054636, -0.11511359, 0.028559525, -0.25598803, -0.29790235, -0.026269048, 0.0272142, -0.014661633, -0.026269048, 0.27394992, -0.060276974, 0.028559525, 0.27394992, 0.012729395, -0.026269048, -0.2651476, -0.15161678, -0.026269048, -0.22850934, -0.12422575, -0.026269048, 0.2648476, 0.22285461, 0.028559525, -0.18288328, -0.16989565, 0.028559525, 0.18258329, -0.094998576, 0.018929632, -0.28472817, 0.24118805, 0.028559525, 0.10031896, -0.29790235, -0.026269048, -0.02751419, 0.23202133, -0.026269048, -0.19198559, -0.07855585, -0.026269048, -0.29256904, 0.23202133, -0.026269048, 0.1916856, -0.10187641, 0.018460939, 0.2769283, 0.08584489, 0.028559525, 0.22820935, -0.24301115, 0.028559525, -0.08235707, -0.07675221, 0.01876304, 0.2817624, 0.11323592, 0.028559525, -0.21934979)
 
-[node name="Rock" type="CharacterBody3D"]
+[node name="Rock" type="CharacterBody3D" unique_id=519725697]
 script = ExtResource("1_u7f1a")
 
-[node name="Rock" type="MeshInstance3D" parent="."]
+[node name="Rock" type="MeshInstance3D" parent="." unique_id=305105740]
 material_override = SubResource("StandardMaterial3D_x4k6k")
 mesh = ExtResource("3_buq2y")
 
-[node name="RockArea3D" type="Area3D" parent="Rock"]
+[node name="RockArea3D" type="Area3D" parent="Rock" unique_id=280640544]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Rock/RockArea3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rock/RockArea3D" unique_id=1575759901]
 transform = Transform3D(0.90909094, 0, 0, 0, 0.90909094, 0, 0, 0, 0.90909094, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_x4k6k")
 
-[node name="RockCam" type="Camera3D" parent="."]
+[node name="RockCam" type="Camera3D" parent="." unique_id=430194014]
 transform = Transform3D(1, 0, 0, 0, 0.96831787, 0.24972095, 0, -0.24972095, 0.96831787, 0, 0.4438225, 1.0577755)
 cull_mask = 1048573
 current = true
 
-[node name="TestCam" type="Camera3D" parent="."]
+[node name="TestCam" type="Camera3D" parent="." unique_id=1624649773]
 transform = Transform3D(1, 0, 0, 0, 0.99996054, 0.0088835955, 0, -0.0088835955, 0.99996054, 0, -0.016065955, 1.0577755)
 cull_mask = 1048573
 
-[node name="RockCamTop" type="Camera3D" parent="."]
+[node name="TestCam2" type="Camera3D" parent="." unique_id=1909099076]
+transform = Transform3D(-0.9997438, -0.01802934, 0.013685238, -0.011598841, 0.92725086, 0.37426102, -0.019437328, 0.3740064, -0.92722243, -0.02453497, 1.144913, -1.9385757)
+cull_mask = 1048573
+
+[node name="RockCamTop" type="Camera3D" parent="." unique_id=726542066]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
 cull_mask = 1048573
 

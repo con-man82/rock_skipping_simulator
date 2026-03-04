@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 	
 	if power_set == true and spin_set == true and rock_x_rotation_set == true and start_action == true:
 		concept_rock.throw(power, spin)
-		concept_rock.rock_cam_top.current = true
+		concept_rock.rock_cam_top.current = true     #commented out top down camera for testing 3/2/26
 		start_action = false
 		
 
@@ -62,9 +62,9 @@ func get_power(delta):
 	slide_up = slider_direction(slide_up)
 	sliding_numbers(delta, slide_up)
 	if Input.is_action_just_released("power_hit") and accept_input == true:
-		#power = slideNumber put back when not using var test_power
+		power = slideNumber # put back when not using var test_power
 		
-		power = test_power #for testing power
+		#power = test_power 						#for testing power
 		power_amount_label.text = str(power)
 		power_set = true
 		delay_input()
@@ -79,7 +79,7 @@ func get_x_rotation(delta):
 	slide_up = slider_direction(slide_up, 1) #1 tells slideNumber to only go as high as 30 instead of 100
 	sliding_numbers(delta/slow_down, slide_up)
 	if Input.is_action_just_released("power_hit") and accept_input == true:
-		concept_rock.rock_mesh.rotation.x = slideNumber
+		#concept_rock.rock_mesh.rotation.x = slideNumber commented out on 3/1/26 for testing, the rotation isn't working right, i'll check back in on this later
 		#power_amount_label.text = str(power)
 		rock_x_rotation_set = true
 		delay_input()

@@ -68,7 +68,7 @@ size = Vector2(2, 5)
 
 [node name="ConceptLevel" type="Node3D" unique_id=471344721]
 script = ExtResource("1_3jw7l")
-test_power = 50.0
+test_power = 25.0
 
 [node name="UI" parent="." unique_id=412097980 instance=ExtResource("1_rtf3t")]
 
@@ -78,7 +78,6 @@ environment = SubResource("Environment_rtf3t")
 [node name="Camera3DForTesting" type="Camera3D" parent="." unique_id=506590015]
 transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.43886578, 4.2334404, 0.57177186)
 cull_mask = 1048573
-current = true
 
 [node name="water" type="MeshInstance3D" parent="." unique_id=600362620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9239991, -459.66006)
@@ -89,6 +88,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2854843, -0.9239991, -999.9
 mesh = SubResource("PlaneMesh_wrno5")
 
 [node name="Land4" type="MeshInstance3D" parent="water/water" unique_id=1196469786]
+transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
+mesh = SubResource("PrismMesh_4gbrq")
+skeleton = NodePath("../water")
+
+[node name="water" type="MeshInstance3D" parent="water/water" unique_id=1261957002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2854843, -0.9239991, -999.9695)
+mesh = SubResource("PlaneMesh_wrno5")
+
+[node name="Land4" type="MeshInstance3D" parent="water/water/water" unique_id=607825354]
+transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
+mesh = SubResource("PrismMesh_4gbrq")
+skeleton = NodePath("../water")
+
+[node name="water" type="MeshInstance3D" parent="water/water/water" unique_id=1388701730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2854843, -0.9239991, -999.9695)
+mesh = SubResource("PlaneMesh_wrno5")
+
+[node name="Land4" type="MeshInstance3D" parent="water/water/water/water" unique_id=1109465239]
+transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
+mesh = SubResource("PrismMesh_4gbrq")
+skeleton = NodePath("../water")
+
+[node name="water" type="MeshInstance3D" parent="water/water/water/water" unique_id=788998544]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2854843, -0.9239991, -999.9695)
+mesh = SubResource("PlaneMesh_wrno5")
+
+[node name="Land4" type="MeshInstance3D" parent="water/water/water/water/water" unique_id=830753388]
+transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
+mesh = SubResource("PrismMesh_4gbrq")
+skeleton = NodePath("../water")
+
+[node name="water" type="MeshInstance3D" parent="water/water/water/water/water" unique_id=720431643]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2854843, -0.9239991, -999.9695)
+mesh = SubResource("PlaneMesh_wrno5")
+
+[node name="Land4" type="MeshInstance3D" parent="water/water/water/water/water/water" unique_id=442155423]
 transform = Transform3D(9.605071, 2.6135979, 0.9548371, -2.6159751, 9.651227, -0.102425165, -0.9483049, -0.1514029, 9.953783, 109.61453, 0.30204034, 418.308)
 mesh = SubResource("PrismMesh_4gbrq")
 skeleton = NodePath("../water")
@@ -133,7 +168,7 @@ mesh = SubResource("PrismMesh_4gbrq")
 skeleton = NodePath("../water")
 
 [node name="BouncePad" type="MeshInstance3D" parent="." unique_id=580065288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4341328, -132.8952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.190396, -132.8952)
 visible = false
 layers = 2
 mesh = SubResource("BoxMesh_rtf3t")
@@ -168,6 +203,11 @@ mesh = SubResource("PlaneMesh_4gbrq")
 [node name="Rock6" type="MeshInstance3D" parent="." unique_id=836612368]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
 mesh = ExtResource("5_wte2k")
+
+[node name="Htmap2(fatherone for testing)" type="MeshInstance3D" parent="." unique_id=603298419]
+transform = Transform3D(-0.9281678, 0, 0.37216175, 0, 1, 0, -0.37216175, 0, -0.9281678, -948.63947, -407.52496, -7665.3193)
+mesh = ExtResource("7_wrno5")
+skeleton = NodePath("../Htmap")
 
 [node name="Htmap" type="MeshInstance3D" parent="." unique_id=245898775]
 transform = Transform3D(0.13566372, 0, 0.9907549, 0, 1, 0, -0.9907549, 0, 0.13566372, -894.1439, -13.742043, -241.01485)

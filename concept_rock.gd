@@ -4,6 +4,9 @@ extends CharacterBody3D
 @onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
 @onready var rock_mesh: MeshInstance3D = $Rock
 @onready var rock_cam_top: Camera3D = $RockCamTop
+@onready var gpu_particles_3d: GPUParticles3D = $Rock/GPUParticles3D
+
+const waterRipple: PackedScene = preload("res://Assests/Particles/rock_water_splash_gpu_particles_3d.tscn")
 
 const ROCK_1 = preload("uid://nw4bx6304nlc")
 const ROCK_3 = preload("uid://rssf13emrj8r")
@@ -12,11 +15,12 @@ const ROCK_5 = preload("uid://dqnw05upv70sj")
 const ROCK_6 = preload("uid://br7q5m2wwtpfw")
 const ROCK_7 = preload("uid://bctq60oe8vry")
 
+
 const RockPhysics = preload("res://rock_physics.gd") 
 
 var speed = 5.0
 var dragging_speed := 0.0
-var skip_velocity = 10.1 # 10.1
+var skip_velocity = 10.1
 var rock_power := 0.00
 var rock_spin := 0.00
 var start_moving := false
@@ -26,7 +30,10 @@ var stop_rock = false
 var rock_path = "Assests/Rocks/"
 var num_bounces = 0
 
-var physics = RockPhysics.new(3, 2.8, 10)
+#var physics = RockPhysics.new(3, 2.8, 10) starting stats before 3/1
+var physics = RockPhysics.new(.8, 2.8, 1000) #messing with numbers on 3/1
+#a area of rock object var# 1 in rock physics
+#d density of rock object var# 2 in rock physics 
 var dragon_speed : float
 var reaction_force : float
 
@@ -38,6 +45,8 @@ var testing := true
 
 func _ready() -> void:
 	#pass#rock_mesh.mesh=ROCK_7
+	#spawn_splash()
+	print(skip_velocity)
 
 	dragon_speed = abs(physics.loss_due_to_kinetic_energy()) / 3000
 	# dragon_speed = abs(reaction_force) / 2000
@@ -67,7 +76,8 @@ func _physics_process(delta: float) -> void:
 	if skip_attempt == true:
 		if skip_velocity > 0:
 			printt("SV = ", skip_velocity)
-			velocity.y = skip_velocity
+			velocity.y = skip_velocity / 7 			#this is where the rock height for each skip is
+			#gpu_particles_3d.restart() # = true #not working like i think it should, probably need to instance the particle effect? 
 		else:
 			pass 
 		skip_attempt = false
@@ -124,6 +134,7 @@ func _on_rock_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape
 		skip_velocity = skip_velocity - dragon_speed
 		print("I'm entered. Speed should be: " + str(skip_velocity))
 		skip_signal.emit()
+		spawn_splash()
 	print("Stop_rock = ", stop_rock)
 
 
@@ -146,3 +157,8 @@ func select_random_rock():
 	print("acceptable rocks: " + str(acceptable_rocks.size()))
 
 	return randi_range(0, acceptable_rocks.size())
+
+func spawn_splash() -> void:
+	var instance = waterRipple.instantiate()
+	#instance.global_position = rock_mesh.global_position
+	add_child(instance)
