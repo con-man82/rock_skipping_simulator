@@ -22,6 +22,7 @@ var power_set := false
 var spin_set := false
 var rock_x_rotation_set := false
 
+var allow_left_right := true
 var init_left_right_aim_degrees := 0
 
 var save_dir : String = "res://"
@@ -39,12 +40,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:     
 	#print(accept_input)
 	
-	if Input.is_action_pressed("move_left") and start_action == false:
+	if Input.is_action_pressed("move_left") and start_action == false and allow_left_right == true:
 		if concept_rock.rotation.y < init_left_right_aim_degrees:
 			printt("left",str(concept_rock.rotation.y))
 			concept_rock.rotation.y += .01 
 		
-	if Input.is_action_pressed("move_right") and start_action == false:
+	if Input.is_action_pressed("move_right") and start_action == false and allow_left_right == true:
 		if concept_rock.rotation.y > -init_left_right_aim_degrees:
 			printt("right", str(concept_rock.rotation.y)) 
 			concept_rock.rotation.y -= .01 
@@ -65,10 +66,12 @@ func _process(delta: float) -> void:
 		slideNumber = 0
 	
 	if power_set == true and spin_set == true and rock_x_rotation_set == true and start_action == true:
+		allow_left_right = false
 		concept_rock.throw(power, spin)
 		concept_rock.rock_cam_top.current = true     #commented out top down camera for testing 3/2/26
 		start_action = false
 		
+		#remember to set allow_left_right = true at some point
 
 func get_power(delta):
 	#print(slideNumber)

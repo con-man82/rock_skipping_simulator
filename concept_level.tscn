@@ -70,6 +70,22 @@ size = Vector2(2, 5)
 script = ExtResource("1_3jw7l")
 test_power = 25.0
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1160399402]
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 269.0
+offset_bottom = 267.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=2043128880]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="MapCam" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=936514366]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.43886578, 7659.3457, -4499.4614)
+cull_mask = 1048573
+far = 10000.0
+
 [node name="UI" parent="." unique_id=412097980 instance=ExtResource("1_rtf3t")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=560763561]
@@ -79,6 +95,7 @@ environment = SubResource("Environment_rtf3t")
 transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.43886578, 4.2334404, 0.57177186)
 cull_mask = 1048573
 current = true
+far = 10000.0
 
 [node name="water" type="MeshInstance3D" parent="." unique_id=600362620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -4.533641, -459.66006)
@@ -188,7 +205,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -60.649868, 0)
 shape = SubResource("BoxShape3D_tfkvj")
 
 [node name="ConceptRock" parent="." unique_id=1539908133 instance=ExtResource("1_il3sp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35444117, 4.3761187, 0.27773213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 slide_on_ceiling = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=949487455]
@@ -198,7 +215,7 @@ transform = Transform3D(0.97338325, -0.06538303, -0.21965903, 0.22918344, 0.2776
 one_shot = true
 
 [node name="CoolGuy" type="MeshInstance3D" parent="." unique_id=360483994]
-transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 3.7016551, -1.4338784)
+transform = Transform3D(0.88223374, 0.46806237, 0.050806515, 0, 0.10791259, -0.9941604, -0.47081172, 0.8770819, 0.09520413, -1.5557544, 3.7016551, -2.954808)
 mesh = SubResource("PlaneMesh_4gbrq")
 
 [node name="Rock6" type="MeshInstance3D" parent="." unique_id=836612368]
@@ -208,6 +225,9 @@ mesh = ExtResource("5_wte2k")
 [node name="Htmap" type="MeshInstance3D" parent="." unique_id=245898775]
 transform = Transform3D(2.0349555, 0, 14.861324, 0, 15, 0, -14.861324, 0, 2.0349555, 5008.972, -150, -4897.738)
 mesh = ExtResource("7_wrno5")
+
+[node name="RockSpawnPoint" type="Node3D" parent="." unique_id=746424061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
 [connection signal="rock_stop" from="ConceptRock" to="UI" method="_on_concept_rock_rock_stop"]
 [connection signal="skip_signal" from="ConceptRock" to="UI" method="_on_concept_rock_skip_signal"]

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://8tm283pwnwms"]
+[gd_scene format=3 uid="uid://8tm283pwnwms"]
 
 [ext_resource type="Script" uid="uid://bygcdmp4lcmac" path="res://ui.gd" id="1_fyqef"]
 
-[node name="UI" type="Control"]
+[node name="UI" type="Control" unique_id=321145182]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,14 +13,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_fyqef")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=2116121199]
 layout_direction = 4
 anchors_preset = 0
 offset_left = 490.5
 offset_right = 1138.5
 offset_bottom = 648.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=927770166]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -33,29 +33,29 @@ offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="AngleHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="AngleHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1613874832]
 layout_mode = 2
 
-[node name="AngleAmountLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer"]
+[node name="AngleAmountLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer" unique_id=1051896176]
 layout_mode = 2
 text = "Number"
 
-[node name="AngleLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer"]
+[node name="AngleLabel" type="Label" parent="Control/VBoxContainer/AngleHBoxContainer" unique_id=1070063208]
 layout_mode = 2
 text = "<--- Spin"
 
-[node name="PowerHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+[node name="PowerHBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1733722104]
 layout_mode = 2
 
-[node name="PowerAmountLabel" type="Label" parent="Control/VBoxContainer/PowerHBoxContainer"]
+[node name="PowerAmountLabel" type="Label" parent="Control/VBoxContainer/PowerHBoxContainer" unique_id=1788486752]
 layout_mode = 2
 text = "Number"
 
-[node name="PowerLabel" type="Label" parent="Control/VBoxContainer/PowerHBoxContainer"]
+[node name="PowerLabel" type="Label" parent="Control/VBoxContainer/PowerHBoxContainer" unique_id=1870631169]
 layout_mode = 2
 text = "<--- Power"
 
-[node name="BottomText" type="Label" parent="Control"]
+[node name="BottomText" type="Label" parent="Control" unique_id=874878742]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -68,7 +68,7 @@ grow_vertical = 0
 text = ">> Press Space to Throw! <<"
 horizontal_alignment = 1
 
-[node name="BouneCounter" type="Label" parent="Control"]
+[node name="BouneCounter" type="Label" parent="Control" unique_id=672057002]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -80,7 +80,7 @@ offset_bottom = 42.0
 grow_horizontal = 0
 text = "Bounce Counter: 0"
 
-[node name="Score" type="Label" parent="Control"]
+[node name="Score" type="Label" parent="Control" unique_id=2075009960]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -92,15 +92,16 @@ offset_bottom = 72.0
 grow_horizontal = 0
 text = "Score: 0"
 
-[node name="Wind" type="Label" parent="Control"]
+[node name="Wind" type="Label" parent="Control" unique_id=1584035591]
 layout_mode = 0
-offset_left = -448.5
-offset_top = 227.0
-offset_right = -310.5
-offset_bottom = 250.0
+offset_left = -444.5
+offset_top = 281.0
+offset_right = -306.5
+offset_bottom = 304.0
 text = "Wind: (not set up)"
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Control" unique_id=1511089457]
+visible = false
 layout_mode = 0
 offset_left = -454.5
 offset_top = 31.0
@@ -114,7 +115,7 @@ text = "Map
 < .............. Map ....................>
 < .............. Map ....................>"
 
-[node name="Rock Selection" type="Label" parent="Control"]
+[node name="Rock Selection" type="Label" parent="Control" unique_id=55182077]
 layout_mode = 0
 offset_left = 466.5
 offset_top = 529.0
