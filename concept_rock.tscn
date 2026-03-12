@@ -39,7 +39,7 @@ transform = Transform3D(-0.9997438, -0.01802934, 0.013685238, -0.011598841, 0.92
 cull_mask = 1048573
 
 [node name="RockCamTop" type="Camera3D" parent="." unique_id=726542066]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 2.477858, 2.0720387)
 cull_mask = 1048573
 
 [connection signal="area_shape_entered" from="Rock/RockArea3D" to="." method="_on_rock_area_3d_area_shape_entered"]

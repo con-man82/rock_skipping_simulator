@@ -31,7 +31,7 @@ shader_parameter/ColorParameter = Color(0.206008, 0.468236, 0.416507, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_wrno5"]
 lightmap_size_hint = Vector2i(5002, 5002)
 material = SubResource("ShaderMaterial_4gbrq")
-size = Vector2(1000, 1000)
+size = Vector2(10000, 10000)
 subdivide_width = 20
 subdivide_depth = 20
 
@@ -42,7 +42,7 @@ albedo_color = Color(0.5249055, 0.43051624, 0.054982536, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wrno5"]
 material = SubResource("StandardMaterial3D_4gbrq")
-size = Vector3(100, 1, 5000)
+size = Vector3(5000, 1, 5000)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtf3t"]
 albedo_color = Color(0, 0.36078432, 0, 1)
@@ -78,9 +78,10 @@ environment = SubResource("Environment_rtf3t")
 [node name="Camera3DForTesting" type="Camera3D" parent="." unique_id=506590015]
 transform = Transform3D(1, 0, 0, 0, 0.990004, 0.14103946, 0, -0.14103946, 0.990004, -0.43886578, 4.2334404, 0.57177186)
 cull_mask = 1048573
+current = true
 
 [node name="water" type="MeshInstance3D" parent="." unique_id=600362620]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -0.9239991, -459.66006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.03446, -4.533641, -459.66006)
 mesh = SubResource("PlaneMesh_wrno5")
 
 [node name="water" type="MeshInstance3D" parent="water" unique_id=1620776627]
@@ -168,7 +169,7 @@ mesh = SubResource("PrismMesh_4gbrq")
 skeleton = NodePath("../water")
 
 [node name="BouncePad" type="MeshInstance3D" parent="." unique_id=580065288]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.190396, -132.8952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7688832, -132.8952)
 visible = false
 layers = 2
 mesh = SubResource("BoxMesh_rtf3t")
@@ -204,13 +205,8 @@ mesh = SubResource("PlaneMesh_4gbrq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6894424, -37.57549, -77.36398)
 mesh = ExtResource("5_wte2k")
 
-[node name="Htmap2(fatherone for testing)" type="MeshInstance3D" parent="." unique_id=603298419]
-transform = Transform3D(-0.9281678, 0, 0.37216175, 0, 1, 0, -0.37216175, 0, -0.9281678, -948.63947, -407.52496, -7665.3193)
-mesh = ExtResource("7_wrno5")
-skeleton = NodePath("../Htmap")
-
 [node name="Htmap" type="MeshInstance3D" parent="." unique_id=245898775]
-transform = Transform3D(0.13566372, 0, 0.9907549, 0, 1, 0, -0.9907549, 0, 0.13566372, -894.1439, -13.742043, -241.01485)
+transform = Transform3D(2.0349555, 0, 14.861324, 0, 15, 0, -14.861324, 0, 2.0349555, 5008.972, -150, -4897.738)
 mesh = ExtResource("7_wrno5")
 
 [connection signal="rock_stop" from="ConceptRock" to="UI" method="_on_concept_rock_rock_stop"]

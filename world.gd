@@ -9,6 +9,7 @@ extends Node3D
 @export var slider_speed := 100
 @export var delay_wait := 0.5
 @export var test_power := 100.1
+
 var accept_input := true
 var slideNumber := 0.00 
 var totalDelta := 0.00
@@ -21,6 +22,8 @@ var power_set := false
 var spin_set := false
 var rock_x_rotation_set := false
 
+var init_left_right_aim_degrees := 0
+
 var save_dir : String = "res://"
 var save_file_name : String = "skipper.json"
 var thePlayer := {}
@@ -31,9 +34,20 @@ func _ready() -> void:
 	spin_amount_label.text = "0"
 	load_data(save_dir+save_file_name)
 	print(thePlayer)
-
+	init_left_right_aim_degrees = 1
+	
 func _process(delta: float) -> void:     
 	#print(accept_input)
+	
+	if Input.is_action_pressed("move_left") and start_action == false:
+		if concept_rock.rotation.y < init_left_right_aim_degrees:
+			printt("left",str(concept_rock.rotation.y))
+			concept_rock.rotation.y += .01 
+		
+	if Input.is_action_pressed("move_right") and start_action == false:
+		if concept_rock.rotation.y > -init_left_right_aim_degrees:
+			printt("right", str(concept_rock.rotation.y)) 
+			concept_rock.rotation.y -= .01 
 	if Input.is_action_just_released("power_hit") and accept_input == true and start_action == false:
 		start_action = true
 		delay_input()
