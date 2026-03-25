@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 
+
 @onready var rock_area_3d: Area3D = $MeshInstance3D/RockArea3D
 @onready var rock_mesh: MeshInstance3D = $Rock
 @onready var rock_cam_top: Camera3D = $RockCamTop
@@ -14,7 +15,6 @@ const ROCK_4 = preload("uid://cp6j4lq0t7shj")
 const ROCK_5 = preload("uid://dqnw05upv70sj")
 const ROCK_6 = preload("uid://br7q5m2wwtpfw")
 const ROCK_7 = preload("uid://bctq60oe8vry")
-
 
 const RockPhysics = preload("res://rock_physics.gd") 
 
@@ -31,23 +31,33 @@ var rock_path = "Assests/Rocks/"
 var num_bounces = 0
 
 #var physics = RockPhysics.new(3, 2.8, 10) starting stats before 3/1
-var physics = RockPhysics.new(.8, 2.8, 1000) #messing with numbers on 3/1
-#a area of rock object var# 1 in rock physics
-#d density of rock object var# 2 in rock physics 
+var physics #gets declaired in ready
+var current_rock #gets declaired in ready
+
 var dragon_speed : float
 var reaction_force : float
 
 signal skip_signal()
 signal start_throw()
 signal rock_stop()
+signal rockstats(a, d, S_area)
+
+var sent_debug_signal = false
 
 var testing := true
 
 func _ready() -> void:
 	#pass#rock_mesh.mesh=ROCK_7
 	#spawn_splash()
-	print(skip_velocity)
+	current_rock = load("uid://bfd7autk68gdu")
+	current_rock.create_rock()
+	physics = RockPhysics.new(current_rock.rockStats["rock_area"],
+									 current_rock.rockStats["rock_density"],
+									 current_rock.rockStats["surface_area"]) 
 
+	
+	print(skip_velocity)
+	
 	dragon_speed = abs(physics.loss_due_to_kinetic_energy()) / 3000
 	# dragon_speed = abs(reaction_force) / 2000
 	print("Loss from KE: " + str(dragon_speed))
@@ -72,11 +82,16 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if sent_debug_signal == false:
+			rockstats.emit(current_rock.rockStats["rock_area"],
+			 current_rock.rockStats["rock_density"],
+			 current_rock.rockStats["surface_area"])
+			sent_debug_signal = true
 	
 	if skip_attempt == true:
 		if skip_velocity > 0:
 			printt("SV = ", skip_velocity)
-			velocity.y = skip_velocity / 7 			#this is where the rock height for each skip is
+			velocity.y = skip_velocity / 15 			#this is where the rock height for each skip is
 			#gpu_particles_3d.restart() # = true #not working like i think it should, probably need to instance the particle effect? 
 		else:
 			pass 
@@ -162,3 +177,12 @@ func spawn_splash() -> void:
 	var instance = waterRipple.instantiate()
 	#instance.global_position = rock_mesh.global_position
 	add_child(instance)
+
+func _on_debug_ui_debug_stats(debug_a: Variant, debug_d: Variant, debug_surf_area: Variant) -> void:
+	sent_debug_signal = false
+	current_rock.rockStats["rock_area"] = float(debug_a)
+	current_rock.rockStats["rock_density"] = float(debug_d)
+	current_rock.rockStats["surface_area"] = float(debug_surf_area)
+	physics = RockPhysics.new(current_rock.rockStats["rock_area"],
+								 current_rock.rockStats["rock_density"],
+								 current_rock.rockStats["surface_area"])

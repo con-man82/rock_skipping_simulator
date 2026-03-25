@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c5e8ia1fmef23" path="res://Assests/Characters/coolguy.webp" id="4_tfkvj"]
 [ext_resource type="ArrayMesh" uid="uid://br7q5m2wwtpfw" path="res://Assests/Rocks/rock6/rock6.obj" id="5_wte2k"]
 [ext_resource type="ArrayMesh" uid="uid://dd6ibi0vfjswy" path="res://Assests/htmap/htmap.obj" id="7_wrno5"]
+[ext_resource type="Script" uid="uid://br55pf37ei6or" path="res://debug_ui.gd" id="8_6w2vy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m8u74"]
 sky_top_color = Color(0.26396942, 0.52872473, 0.90617746, 1)
@@ -229,7 +230,54 @@ mesh = ExtResource("7_wrno5")
 [node name="RockSpawnPoint" type="Node3D" parent="." unique_id=746424061]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
 
+[node name="DebugUI" type="Control" parent="." unique_id=463746947]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 491.0
+offset_right = 41.0
+offset_bottom = 530.0
+script = ExtResource("8_6w2vy")
+
+[node name="TextEdit" type="TextEdit" parent="DebugUI" unique_id=433872635]
+layout_mode = 0
+offset_right = 178.0
+offset_bottom = 38.0
+
+[node name="TextEdit2" type="TextEdit" parent="DebugUI" unique_id=2040669047]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 41.0
+offset_right = 177.0
+offset_bottom = 79.0
+
+[node name="TextEdit3" type="TextEdit" parent="DebugUI" unique_id=725340432]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 82.0
+offset_right = 177.0
+offset_bottom = 120.0
+
+[node name="set_stats" type="Button" parent="DebugUI" unique_id=1446389540]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 10.0
+offset_right = 274.0
+offset_bottom = 41.0
+text = "Set Stats"
+
+[node name="reset_level" type="Button" parent="DebugUI" unique_id=2060339591]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 91.0
+offset_right = 278.0
+offset_bottom = 116.0
+text = "Reset level"
+
 [connection signal="rock_stop" from="ConceptRock" to="UI" method="_on_concept_rock_rock_stop"]
+[connection signal="rockstats" from="ConceptRock" to="DebugUI" method="_on_concept_rock_rockstats"]
 [connection signal="skip_signal" from="ConceptRock" to="UI" method="_on_concept_rock_skip_signal"]
 [connection signal="start_throw" from="ConceptRock" to="UI" method="_on_concept_rock_start_throw"]
 [connection signal="timeout" from="InputDelayTimer" to="." method="_on_input_delay_timer_timeout"]
+[connection signal="pressed" from="DebugUI/set_stats" to="DebugUI" method="_on_set_stats_pressed"]
+[connection signal="pressed" from="DebugUI/reset_level" to="DebugUI" method="_on_reset_level_pressed"]

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Rock" format=3 uid="uid://bfd7autk68gdu"]
+
+[ext_resource type="Script" uid="uid://dagafge8dp3xw" path="res://Assests/Rocks/default_rock.gd" id="1_nfdir"]
+
+[resource]
+script = ExtResource("1_nfdir")
